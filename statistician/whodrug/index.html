@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaoran Hu - whodrug</title>
+  <meta property="og:title" content="Chaoran Hu">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../../assets/img/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="site-title" href="../../">Chaoran Hu</a>
+      <nav class="site-nav">
+        <a href="../../statistician/" aria-current="page">Statistician</a>
+        <a href="../../photographer/">Photographer</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <h1>My note of WHODrug</h1>
+    <p>WHODrug contains two entry types:</p>
+    <ol>
+      <li><strong>Preferred Name</strong>: Non-proprietary name for single-ingredient drugs or the first reported drug name of a given ingredient combination (generic name)</li>
+      <li><strong>Synonym Name</strong>: Any subsequently reported drugs that are sorted under the preferred name (trade names)</li>
+    </ol>
+
+    <h2>WHODrug drug code</h2>
+    <p>Each WHODrug entry will have a WHODrug drug code. WHODrug drug code consists of 11 characters (alphanumeric code). It has 3 parts: Drug Record Number (Drug Rec No), Sequence number 1 (Seq1), and Sequence number 2 (Seq2).</p>
+    <ol>
+      <li><strong>Drug Rec No</strong>: Active moiety (6 digits)</li>
+      <li><strong>Seq 1</strong>: Different variations (salt/ester) (2 digits)</li>
+      <li><strong>Seq 2</strong>: name of record in WHODrug (3 digits)</li>
+    </ol>
+
+    <h2>WHODrug ATC code</h2>
+    <p>Each WHODrug entry will have one or more ATC codes. ATC is the Anatomical Therapeutic Chemical classification system. ATC hierarchy has 5 levels:</p>
+    <ol>
+      <li><strong>ATC 1</strong>: Anatomical main group</li>
+      <li><strong>ATC2</strong>: Therapeutic subgroup</li>
+      <li><strong>ATC 3</strong>: Pharmacological subgroup</li>
+      <li><strong>ATC 4</strong>: Chemical subgroup</li>
+      <li><strong>ATC 5</strong>: Chemical substance (Not all WHODrug entries have ATC 5.)</li>
+    </ol>
+
+    <h2>An example - Ibuprofen</h2>
+    <p>The Drug Code for the substance Ibuprofen is 001092 01 001.</p>
+    <p>The Drug Code for the trade name Advil infants pain &amp; fever relief is 001092 01 A3D.</p>
+    <p>The ATC 5 code is C 03 C A 01</p>
+    <p>(For more detailed explanation, I recommend the Wiki page of <a href="https://en.wikipedia.org/wiki/WHO_Drug_Dictionary">WHODrug</a> and <a href="https://en.wikipedia.org/wiki/Anatomical_Therapeutic_Chemical_Classification_System">ATC</a>.)</p>
+  </main>
+  <footer class="site-footer">&copy; Chaoran Hu</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaoran Hu - Photographer</title>
+  <meta property="og:title" content="Chaoran Hu">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../assets/img/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="site-title" href="../">Chaoran Hu</a>
+      <nav class="site-nav">
+        <a href="../statistician/">Statistician</a>
+        <a href="../photographer/" aria-current="page">Photographer</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <!--
+      To add a photo: put the image file in assets/img/<section>/ and copy one
+      <figure> line inside that section's gallery, changing the file name.
+      To add a section: copy a whole <h2> + <div class="gallery"> block.
+    -->
+    <h2>Mammal</h2>
+    <div class="gallery">
+      <figure><img src="../assets/img/mammal/01.jpg" alt="Mammal photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/mammal/02.jpg" alt="Mammal photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/mammal/03.jpg" alt="Mammal photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/mammal/04.jpg" alt="Mammal photo by Chaoran Hu" loading="lazy"></figure>
+    </div>
+
+    <h2>Bird</h2>
+    <div class="gallery">
+      <figure><img src="../assets/img/bird/01.jpg" alt="Bird photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/bird/02.jpg" alt="Bird photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/bird/03.jpg" alt="Bird photo by Chaoran Hu" loading="lazy"></figure>
+    </div>
+
+    <h2>Nature</h2>
+    <div class="gallery">
+      <figure><img src="../assets/img/nature/01.jpg" alt="Nature photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/nature/02.jpg" alt="Nature photo by Chaoran Hu" loading="lazy"></figure>
+      <figure><img src="../assets/img/nature/03.jpg" alt="Nature photo by Chaoran Hu" loading="lazy"></figure>
+    </div>
+  </main>
+  <div class="lightbox" id="lightbox"><img alt=""></div>
+  <footer class="site-footer">&copy; Chaoran Hu</footer>
+  <script>
+    // Click a photo to view it full size; click again or press Escape to close.
+    const box = document.getElementById("lightbox");
+    const big = box.querySelector("img");
+    document.querySelectorAll(".gallery img").forEach((img) => {
+      img.addEventListener("click", () => { big.src = img.src; big.alt = img.alt; box.classList.add("open"); });
+    });
+    box.addEventListener("click", () => box.classList.remove("open"));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") box.classList.remove("open"); });
+  </script>
+</body>
+</html>

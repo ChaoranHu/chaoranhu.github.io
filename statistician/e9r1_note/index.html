@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaoran Hu - e9r1_note</title>
+  <meta property="og:title" content="Chaoran Hu">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../../assets/img/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="site-title" href="../../">Chaoran Hu</a>
+      <nav class="site-nav">
+        <a href="../../statistician/" aria-current="page">Statistician</a>
+        <a href="../../photographer/">Photographer</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <h1>My note of E9(R1)</h1>
+    <p>The purpose of this note is to clarify (<a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e9r1-statistical-principles-clinical-trials-addendum-estimands-and-sensitivity-analysis-clinical">FDA E9(R1)</a>):</p>
+    <ol>
+      <li>Endpoint, estimand, intercurrent event;</li>
+      <li>Strategies of handling intercurrent event.</li>
+    </ol>
+    <figure class="note-figure">
+      <img src="../../assets/img/notes/e9r1-1.jpg" alt="Figure 1: Aligning target of estimation, method of estimation, and sensitivity analysis, for a given trial objective">
+    </figure>
+
+    <h2>Estimand contains four components:</h2>
+    <ol>
+      <li><strong>Population</strong>: patients targeted by the scientific question. ex. ITT population, randomized patients who satisfying I/E criteria’s.</li>
+      <li><strong>Endpoint</strong>: measures required to address the scientific question (to be obtained for each patient). ex. glucose at wk16.</li>
+      <li><strong>Intercurrent event</strong>: the specification of how to account for intercurrent events to reflect the scientific question of interest. ex. Discontinue from study treatment due to lack of efficacy.</li>
+      <li><strong>Population-level summary for the variable</strong>: usually proportion of glucose or difference between treatment arms of proportion of glucose.</li>
+    </ol>
+
+    <h2>Distinguishing intercurrent event and missing</h2>
+    <ul>
+      <li>Intercurrent event influent what to estimate. ex. D/C due to lack of efficacy tells us that drug may not be useful. Intercurrent event may not include missing. ex. In some trials, after using rescue medicine, patients will still stay in trial and data is still collected.</li>
+      <li>Missing represents the limitation of data. Missing may be completely random and do not provide information about scientific question of interest. ex. loss to follow up due to COVID-19.</li>
+    </ul>
+
+    <h2>Five strategies to handle intercurrent event</h2>
+    <p>Consider an example, let endpoint be glucose at wk 34 and intercurrent event be taking rescue medicine.</p>
+    <ol>
+      <li><strong>Treatment policy strategy</strong>: Ignoring IC event since it is irrelevant to trial objective. ex. after patient takes rescue medicine, we still collect the data and analysis the data as collected.
+        <ul>
+          <li>Note: Treatment policy may sounds slimilar to as observed analysis. However, they are actually different with respect to the conclusion they can make. ex. Considering a treatment policy trial with arms drug + rescue vs plb + rescue, then it tries to answer the question is drug better than plb with rescue med allowed. But, as observe is how we handle missing data but not ICE.</li>
+        </ul>
+      </li>
+      <li><strong>Composite strategy</strong>: Integrating IC event with measures of clinical outcomes as variable of interest. ex. If a patient take rescue medicine, he/she will be considered as non-responder. By this way, we integrate IC event (rescue medicine usage) into definition of responder.</li>
+      <li><strong>Hypothetical strategy</strong>: Guessing which value the variable would have taken if IC event does not occur (hypothetical scenario). ex. Consider observations after rescue medicine using as missing and impute them based on other available data (maybe from other patients).</li>
+      <li><strong>Principle stratum strategy</strong>: Analyzing within a subset of population who would not experience the IC event. ex. Only patients who adhere to treatment will be included for analysis.</li>
+      <li><strong>While on treatment strategy</strong>: Using measure of clinical outcome prior to the occurrence of the IC event. ex. Responder will not be defined by glucose at wk34 but glucose prior to rescue medicine using.</li>
+    </ol>
+    <p>Mention that it is possible to combine two or more strategies together in practice. For example, consider two IC events, using rescue medicine and d/c due to AE. Then, using rescue medicine will be treated as non-responder and will be set to baseline (composite strategy). D/c due to AE will be treated as missing and will be imputed by MI (hypothetical strategy).</p>
+  </main>
+  <footer class="site-footer">&copy; Chaoran Hu</footer>
+</body>
+</html>
