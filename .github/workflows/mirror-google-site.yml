@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - scripts/google-site-assets.txt
+      - scripts/mirror_google_site.py
       - .github/workflows/mirror-google-site.yml
 
 permissions:
@@ -17,21 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download images
-        run: |
-          grep -v '^#' scripts/google-site-assets.txt | while read -r path url; do
-            [ -z "$path" ] && continue
-            mkdir -p "$(dirname "$path")"
-            curl -fsSL --retry 3 -o "$path" "$url"
-            echo "$path $(wc -c < "$path") bytes"
-          done
-      - name: Save page sources for reference
-        run: |
-          mkdir -p _source
-          for page in home statistician photographer statistician/whodrug statistician/e9r1_note; do
-            curl -fsSL --retry 3 -A "Mozilla/5.0" -o "_source/$(echo $page | tr / _).html" "https://www.huchaoran.com/$page"
-          done
+      - name: Download page sources and images
+        run: python3 scripts/mirror_google_site.py
       - name: Commit
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
