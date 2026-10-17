@@ -1,0 +1,40 @@
+# One time helper: copies images (and page sources for reference) from the
+# old Google Site into the repo, then commits them. Safe to delete afterwards.
+name: Mirror Google Site assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/google-site-assets.txt
+      - .github/workflows/mirror-google-site.yml
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download images
+        run: |
+          grep -v '^#' scripts/google-site-assets.txt | while read -r path url; do
+            [ -z "$path" ] && continue
+            mkdir -p "$(dirname "$path")"
+            curl -fsSL --retry 3 -o "$path" "$url"
+            echo "$path $(wc -c < "$path") bytes"
+          done
+      - name: Save page sources for reference
+        run: |
+          mkdir -p _source
+          for page in home statistician photographer statistician/whodrug statistician/e9r1_note; do
+            curl -fsSL --retry 3 -A "Mozilla/5.0" -o "_source/$(echo $page | tr / _).html" "https://www.huchaoran.com/$page"
+          done
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets _source
+          git diff --cached --quiet || git commit -m "Mirror images from the Google Site"
+          git push
