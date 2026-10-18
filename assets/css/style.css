@@ -215,12 +215,14 @@ main.page li ul { margin: 0.3em 0; }
 .carousel .dots {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: -26px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 .carousel .dots button {
-  width: 20px;
+  flex: 0 1 20px; /* shrink when a section has many photos */
+  min-width: 3px;
   height: 1px;
   padding: 6px 0;
   border: none;
@@ -314,3 +316,18 @@ h1, h2, h3, .site-title, strong { color: var(--ink); }
 }
 .carousel .nav:hover { background: #3a3a3a; border-color: #3a3a3a; }
 main.page.wide .coming-soon + h2 { margin-top: 112px; }
+
+/* Hand drawn ornaments above the photo section titles, tinted with the text grey */
+.ornament {
+  display: block;
+  width: 120px;
+  margin: 0 auto 20px;
+  background-color: var(--text);
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+}
+.ornament-birds { --src: url("../img/ornaments/wildlife-birds.svg"); aspect-ratio: 170 / 90; }
+.ornament-reeds { --src: url("../img/ornaments/nature-reeds.svg"); aspect-ratio: 170 / 110; }
+.ornament-doorway { --src: url("../img/ornaments/humanistics-doorway.svg"); aspect-ratio: 124 / 100; width: 96px; }
+main.page.wide .carousel + .ornament { margin-top: 112px; }
+main.page.wide .ornament + h2 { margin-top: 0; }

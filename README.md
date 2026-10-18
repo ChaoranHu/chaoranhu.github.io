@@ -14,7 +14,7 @@ Source for Chaoran Hu's personal website, rebuilt from the original Google Site 
 | `home/index.html` | Redirect from the old `/home` address |
 | `assets/css/style.css` | All styling |
 | `assets/js/carousel.js` | Photo sliders |
-| `assets/img/` | Portrait, photos and figures |
+| `assets/img/` | Portrait, photos, figures and section ornaments |
 
 ## Adding a photo
 
@@ -50,4 +50,4 @@ Optional: in Settings, then Pages, use "Verify domain" for huchaoran.com so no o
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=8` and `carousel.js?v=8`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=9` and `carousel.js?v=9`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.
