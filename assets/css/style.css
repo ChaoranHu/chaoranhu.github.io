@@ -1,9 +1,12 @@
-/* Styles for huchaoran.com: black and white, thin lines, lots of air. */
+/* Styles for huchaoran.com: black, white and a few greys, thin lines, lots of air. */
 :root {
-  --ink: #111111;
-  --muted: #6b6b6b;
-  --line: #111111;
-  --hair: #e6e6e6;
+  /* Grey scale, darkest to lightest */
+  --ink: #111111;   /* name, headings, links */
+  --text: #3a3a3a;  /* body text */
+  --muted: #858585; /* small labels, captions, footer */
+  --line: #9a9a9a;  /* section rules */
+  --hair: #e2e2e2;  /* faint dividers */
+  --pale: #f3f3f2;  /* footer band and empty sections */
   --bg: #ffffff;
   --max: 1040px;
   --text-max: 720px;
@@ -20,7 +23,7 @@ body {
   font-size: 20px;
   font-variant-numeric: lining-nums;
   line-height: 1.7;
-  color: var(--ink);
+  color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
@@ -292,3 +295,21 @@ main.page h2 {
   text-transform: none;
 }
 main.page.wide h2 { font-size: 34px; font-weight: 300; }
+
+/* Greys: dark text, mid grey labels and rules, a pale band at the foot */
+h1, h2, h3, .site-title, strong { color: var(--ink); }
+.site-footer {
+  max-width: none;
+  margin-top: 40px;
+  border-top: none;
+  background: var(--pale);
+  padding: 36px 24px 44px;
+}
+.home + .site-footer { margin-top: 0; }
+.coming-soon {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  background: var(--pale);
+}
+.carousel .nav:hover { background: #3a3a3a; border-color: #3a3a3a; }
