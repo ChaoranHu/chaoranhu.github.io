@@ -103,10 +103,7 @@ a:hover { text-decoration-color: var(--ink); }
   display: block;
   width: 100%;
   height: auto;
-  filter: grayscale(1);
-  transition: filter 0.4s ease;
 }
-.home .portrait img:hover { filter: none; }
 @media (max-width: 760px) {
   .home { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 64px; }
   .home .portrait { order: -1; max-width: 360px; }
