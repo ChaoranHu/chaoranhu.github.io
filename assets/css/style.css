@@ -62,19 +62,6 @@ a:hover { text-decoration-color: var(--ink); }
   text-transform: uppercase;
   text-decoration: none;
 }
-.site-nav { display: flex; gap: 28px; flex-wrap: wrap; }
-.site-nav a {
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--muted);
-  padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
-}
-.site-nav a:hover { color: var(--ink); }
-.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* Home */
 .home {
