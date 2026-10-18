@@ -1,2 +1,0 @@
-fail https://i.instagram.com: HTTP Error 429: Too Many Requests
-fail https://www.instagram.com: HTTP Error 429: Too Many Requests
