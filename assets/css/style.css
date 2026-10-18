@@ -313,3 +313,4 @@ h1, h2, h3, .site-title, strong { color: var(--ink); }
   background: var(--pale);
 }
 .carousel .nav:hover { background: #3a3a3a; border-color: #3a3a3a; }
+main.page.wide .coming-soon + h2 { margin-top: 112px; }
