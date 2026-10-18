@@ -13,14 +13,15 @@ Source for Chaoran Hu's personal website, rebuilt from the original Google Site 
 | `photographer/index.html` | Photographer gallery |
 | `home/index.html` | Redirect from the old `/home` address |
 | `assets/css/style.css` | All styling |
-| `assets/img/` | Portrait, social icons, photos and figures |
+| `assets/js/carousel.js` | Photo sliders |
+| `assets/img/` | Portrait, photos and figures |
 
 ## Adding a photo
 
 1. Put the image in `assets/img/mammal/`, `assets/img/bird/` or `assets/img/nature/` (about 1280 px wide keeps the page fast).
-2. In `photographer/index.html`, copy one `<figure>` line inside that section and change the file name.
+2. In `photographer/index.html`, copy one `<figure>` line inside that section and change the file name. The slider buttons, dots and counter update on their own.
 
-To add a new section, create a new folder under `assets/img/` and copy a whole `<h2>` plus `<div class="gallery">` block.
+To add a new section, create a new folder under `assets/img/` and copy a whole `<h2>` plus `<div class="carousel">` block.
 
 ## Previewing locally
 
