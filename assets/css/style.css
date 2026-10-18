@@ -1,9 +1,12 @@
-/* Styles for huchaoran.com: black and white, thin lines, lots of air. */
+/* Styles for huchaoran.com: black, white and a few greys, thin lines, lots of air. */
 :root {
-  --ink: #111111;
-  --muted: #6b6b6b;
-  --line: #111111;
-  --hair: #e6e6e6;
+  /* Grey scale, darkest to lightest */
+  --ink: #111111;   /* name, headings, links */
+  --text: #3a3a3a;  /* body text */
+  --muted: #858585; /* small labels, captions, footer */
+  --line: #9a9a9a;  /* section rules */
+  --hair: #e2e2e2;  /* faint dividers */
+  --pale: #f3f3f2;  /* footer band and empty sections */
   --bg: #ffffff;
   --max: 1040px;
   --text-max: 720px;
@@ -15,16 +18,17 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 300;
-  font-size: 17px;
+  font-family: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 20px;
+  font-variant-numeric: lining-nums;
   line-height: 1.7;
-  color: var(--ink);
+  color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
 
-strong { font-weight: 500; }
+strong { font-weight: 600; }
 
 a {
   color: var(--ink);
@@ -105,7 +109,7 @@ a:hover { text-decoration-color: var(--ink); }
   list-style: none;
 }
 .social a {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -129,7 +133,7 @@ main.page h1 {
   margin: 0 0 1.2em;
 }
 main.page h2 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -192,7 +196,7 @@ main.page li ul { margin: 0.3em 0; }
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   color: var(--ink);
-  font: 300 22px/40px "Inter", Arial, sans-serif;
+  font: 400 26px/38px "Cormorant Garamond", Garamond, serif;
   text-align: center;
   cursor: pointer;
   transition: opacity 0.2s ease, background 0.15s ease, color 0.15s ease;
@@ -203,7 +207,7 @@ main.page li ul { margin: 0.3em 0; }
 .carousel .nav[disabled] { opacity: 0; pointer-events: none; }
 .carousel .count {
   margin-top: 14px;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.16em;
   color: var(--muted);
   text-align: right;
@@ -211,12 +215,14 @@ main.page li ul { margin: 0.3em 0; }
 .carousel .dots {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: -26px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 .carousel .dots button {
-  width: 20px;
+  flex: 0 1 20px; /* shrink when a section has many photos */
+  min-width: 3px;
   height: 1px;
   padding: 6px 0;
   border: none;
@@ -235,7 +241,7 @@ main.page li ul { margin: 0.3em 0; }
   margin: 0 auto;
   border-top: 1px solid var(--hair);
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 28px 24px 40px;
@@ -256,12 +262,12 @@ main.page.wide .carousel + h2 { margin-top: 112px; }
 .coming-soon {
   text-align: center;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-/* Display serif for the name and headings; Inter stays for body text */
+/* Display serif sizes for the name and headings */
 :root { --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif; }
 .site-title {
   font-family: var(--serif);
@@ -291,3 +297,37 @@ main.page h2 {
   text-transform: none;
 }
 main.page.wide h2 { font-size: 34px; font-weight: 300; }
+
+/* Greys: dark text, mid grey labels and rules, a pale band at the foot */
+h1, h2, h3, .site-title, strong { color: var(--ink); }
+.site-footer {
+  max-width: none;
+  margin-top: 40px;
+  border-top: none;
+  background: var(--pale);
+  padding: 36px 24px 44px;
+}
+.home + .site-footer { margin-top: 0; }
+.coming-soon {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  background: var(--pale);
+}
+.carousel .nav:hover { background: #3a3a3a; border-color: #3a3a3a; }
+main.page.wide .coming-soon + h2 { margin-top: 112px; }
+
+/* Hand drawn ornaments above the photo section titles, tinted with the text grey */
+.ornament {
+  display: block;
+  width: 120px;
+  margin: 0 auto 20px;
+  background-color: var(--text);
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+}
+.ornament-birds { --src: url("../img/ornaments/wildlife-birds.svg"); aspect-ratio: 170 / 90; }
+.ornament-reeds { --src: url("../img/ornaments/nature-reeds.svg"); aspect-ratio: 170 / 110; }
+.ornament-doorway { --src: url("../img/ornaments/humanistics-doorway.svg"); aspect-ratio: 124 / 100; width: 96px; }
+main.page.wide .carousel + .ornament { margin-top: 112px; }
+main.page.wide .ornament + h2 { margin-top: 0; }

@@ -14,14 +14,14 @@ Source for Chaoran Hu's personal website, rebuilt from the original Google Site 
 | `home/index.html` | Redirect from the old `/home` address |
 | `assets/css/style.css` | All styling |
 | `assets/js/carousel.js` | Photo sliders |
-| `assets/img/` | Portrait, photos and figures |
+| `assets/img/` | Portrait, photos, figures and section ornaments |
 
 ## Adding a photo
 
 1. Put the image in `assets/img/wildlife/`, `assets/img/nature/` or `assets/img/humanistics/` (about 1280 px wide keeps the page fast).
 2. In `photographer/index.html`, copy one `<figure>` line inside that section and change the file name. The slider buttons, dots and counter update on their own.
 
-The Humanistics section shows "Coming soon" until it has photos: replace that paragraph with a carousel block copied from another section.
+A section with no photos shows "Coming soon": replace that paragraph with the carousel block given in the comment at the top of `photographer/index.html`.
 
 To add a new section, create a new folder under `assets/img/` and copy a whole `<h2>` plus `<div class="carousel">` block.
 
@@ -50,4 +50,4 @@ Optional: in Settings, then Pages, use "Verify domain" for huchaoran.com so no o
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=5` and `carousel.js?v=5`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=9` and `carousel.js?v=9`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.

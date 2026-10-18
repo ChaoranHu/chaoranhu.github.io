@@ -9,8 +9,8 @@
   <link rel="icon" href="../assets/img/hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=9">
 </head>
 <body>
   <header class="site-header">
@@ -20,38 +20,87 @@
   </header>
   <main class="page wide">
     <!--
-      To add a photo: put the image file in assets/img/<section>/ and copy one
-      <figure> line inside that section's track, changing the file name.
-      To add a section: copy a whole <h2> + <div class="carousel"> block.
-      Buttons, dots and swiping are added automatically by assets/js/carousel.js.
+      Each section shows "Coming soon" until it has photos. To fill one, put the
+      images in assets/img/<section>/ and replace its paragraph with a block like:
+
+      <div class="carousel" aria-label="Wildlife photos">
+        <div class="track" tabindex="0">
+          <figure><img src="../assets/img/wildlife/01.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
+        </div>
+      </div>
+
+      Add one <figure> line per photo. Buttons, dots and swiping are added
+      automatically by assets/js/carousel.js.
     -->
+    <span class="ornament ornament-birds" aria-hidden="true"></span>
     <h2>Wildlife</h2>
     <div class="carousel" aria-label="Wildlife photos">
       <div class="track" tabindex="0">
-        <figure><img src="../assets/img/wildlife/01.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/wildlife/02.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/wildlife/03.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/wildlife/04.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/wildlife/05.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/wildlife/06.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/wildlife/07.jpg" alt="Wildlife photo by Chaoran Hu" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/01.jpg" alt="Bighorn sheep resting on a steep grassy slope" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/02.jpg" alt="Sea lions sleeping in a pile" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/03.jpg" alt="Red tailed hawk in profile" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/04.jpg" alt="Rabbit hidden in frosty brush" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/05.jpg" alt="Pronghorn close up, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/06.jpg" alt="Great horned owl asleep on a branch" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/07.jpg" alt="Squirrel peeking from a tree hollow" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/08.jpg" alt="Elk herd grazing under a beam of light" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/09.jpg" alt="Bull elk with his herd at sunrise" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/10.jpg" alt="Ewe and lamb by a farm trailer, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/11.jpg" alt="Sheep and lamb in a field, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/12.jpg" alt="River otter shaking off water, three frames, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/wildlife/13.jpg" alt="Young raccoon on a gravel path" loading="lazy"></figure>
       </div>
     </div>
 
+    <span class="ornament ornament-reeds" aria-hidden="true"></span>
     <h2>Nature</h2>
     <div class="carousel" aria-label="Nature photos">
       <div class="track" tabindex="0">
-        <figure><img src="../assets/img/nature/01.jpg" alt="Nature photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/nature/02.jpg" alt="Nature photo by Chaoran Hu" loading="lazy"></figure>
-        <figure><img src="../assets/img/nature/03.jpg" alt="Nature photo by Chaoran Hu" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/01.jpg" alt="Snowy peak in mist above a dark forest" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/02.jpg" alt="Foggy forested coastline seen from above" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/03.jpg" alt="Wave breaking against dark rocks" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/04.jpg" alt="Mountain ridge wrapped in clouds, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/05.jpg" alt="Low cloud drifting through a valley of pines" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/06.jpg" alt="Crescent moon over a calm sea, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/07.jpg" alt="Wind blown grass under a stormy sky, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/08.jpg" alt="White lighthouse above coastal shrubs" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/09.jpg" alt="Leaves on a branch, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/10.jpg" alt="Dried sunflowers, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/11.jpg" alt="White flowers on a stem" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/12.jpg" alt="Frosted trees in morning light" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/13.jpg" alt="Lone dead tree on a misty shore, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/14.jpg" alt="Snow over a dark stream" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/15.jpg" alt="Golden autumn leaves" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/16.jpg" alt="Misty meadow and river at sunrise" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/17.jpg" alt="Mountain range above a calm lake" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/18.jpg" alt="Steam rising by a river in fog, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/19.jpg" alt="Steaming blue hot spring" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/20.jpg" alt="Terraced mineral ripples" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/21.jpg" alt="Daisies in a meadow" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/22.jpg" alt="Dark storm clouds" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/23.jpg" alt="Sunlit autumn maples between dark trunks" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/24.jpg" alt="Red leaves against a blue sky" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/25.jpg" alt="Frosted leaves in snow" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/26.jpg" alt="Stones under clear water, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/27.jpg" alt="Crab shell on wet sand at sunset" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/28.jpg" alt="Moss with tiny seed stalks in warm light" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/29.jpg" alt="Close up of bright green moss" loading="lazy"></figure>
+        <figure><img src="../assets/img/nature/30.jpg" alt="Backlit dried seed pods" loading="lazy"></figure>
       </div>
     </div>
 
+    <span class="ornament ornament-doorway" aria-hidden="true"></span>
     <h2>Humanistics</h2>
-    <!-- When the first photo is ready, replace this paragraph with a carousel block like the ones above. -->
-    <p class="coming-soon">Coming soon.</p>
+    <div class="carousel" aria-label="Humanistics photos">
+      <div class="track" tabindex="0">
+        <figure><img src="../assets/img/humanistics/01.jpg" alt="Child twirling in a sunlit dress, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/humanistics/02.jpg" alt="Child lying on a suitcase reading, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/humanistics/03.jpg" alt="Child dancing by a door, black and white" loading="lazy"></figure>
+        <figure><img src="../assets/img/humanistics/04.jpg" alt="Child pulling a curtain in a dark room, black and white" loading="lazy"></figure>
+      </div>
+    </div>
   </main>
   <footer class="site-footer">&copy; Chaoran Hu</footer>
-  <script src="../assets/js/carousel.js?v=5"></script>
+  <script src="../assets/js/carousel.js?v=9"></script>
 </body>
 </html>
