@@ -18,8 +18,10 @@ Source for Chaoran Hu's personal website, rebuilt from the original Google Site 
 
 ## Adding a photo
 
-1. Put the image in `assets/img/mammal/`, `assets/img/bird/` or `assets/img/nature/` (about 1280 px wide keeps the page fast).
+1. Put the image in `assets/img/wildlife/`, `assets/img/nature/` or `assets/img/humanistics/` (about 1280 px wide keeps the page fast).
 2. In `photographer/index.html`, copy one `<figure>` line inside that section and change the file name. The slider buttons, dots and counter update on their own.
+
+The Humanistics section shows "Coming soon" until it has photos: replace that paragraph with a carousel block copied from another section.
 
 To add a new section, create a new folder under `assets/img/` and copy a whole `<h2>` plus `<div class="carousel">` block.
 
