@@ -47,3 +47,7 @@ Then open http://localhost:8000.
 8. Only then delete or unpublish the old Google Site. Every image and file the new site uses already lives in this repository, so nothing breaks when Google Sites goes away.
 
 Optional: in Settings, then Pages, use "Verify domain" for huchaoran.com so no other GitHub account can claim it.
+
+## After changing the CSS or JavaScript
+
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=4` and `carousel.js?v=4`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.
