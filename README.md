@@ -13,7 +13,8 @@ Source for Chaoran Hu's personal website, rebuilt from the original Google Site 
 | `photographer/index.html` | Photographer gallery |
 | `home/index.html` | Redirect from the old `/home` address |
 | `assets/css/style.css` | All styling |
-| `assets/img/` | Portrait, social icons, photos and figures |
+| `assets/js/carousel.js` | Photo sliders |
+| `assets/img/` | Portrait, photos and figures |
 
 ## Adding a photo
 
