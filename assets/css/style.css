@@ -79,8 +79,7 @@ a:hover { text-decoration-color: var(--ink); }
   align-items: center;
   align-content: center;
 }
-/* The sketch and the links row span both columns, centred */
-.home .ornament-pines { grid-column: 1 / -1; justify-self: center; margin: 0; }
+/* The links row spans both columns, centred */
 .home .social { grid-column: 1 / -1; justify-content: center; margin: 0; }
 .home h1 {
   font-weight: 300;
@@ -101,7 +100,6 @@ a:hover { text-decoration-color: var(--ink); }
 @media (max-width: 760px) {
   .home { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 64px; }
   .home .portrait { order: -1; max-width: 360px; }
-  .home .ornament-pines { order: -2; }
 }
 
 .social {
@@ -372,8 +370,19 @@ main.page * + .section-head { margin-top: 80px; }
 .ornament-papers { --src: url("../img/ornaments/statistician-papers.svg?v=2"); }
 .ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg?v=2"); }
 
-/* Sketch on the Home page */
-.ornament-pines { --src: url("../img/ornaments/wildlife-pines.svg"); aspect-ratio: 195 / 80; width: 150px; margin: 0 0 28px; }
+/* Pines sketch beside the name in the header, like a logo */
+.site-header .inner { align-items: center; }
+.site-title { display: inline-flex; align-items: center; gap: 14px; }
+.logo-pines {
+  display: block;
+  width: 100px;
+  aspect-ratio: 195 / 80;
+  margin-top: -6px;
+  background-color: var(--text);
+  -webkit-mask: url("../img/ornaments/wildlife-pines.svg") center / contain no-repeat;
+  mask: url("../img/ornaments/wildlife-pines.svg") center / contain no-repeat;
+}
+@media (max-width: 760px) { .logo-pines { width: 80px; } }
 
 /* Statistician page: larger list text under the section titles */
 main.page.cv ul { font-size: 23px; line-height: 1.55; }
