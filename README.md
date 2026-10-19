@@ -56,7 +56,7 @@ Steps 1 and 2 are already done; the site is live at https://chaoranhu.github.io/
 
 1. Merge the site into the branch GitHub Pages will publish (for example `main`).
 2. In the repository, open Settings, then Pages. Under "Build and deployment" choose "Deploy from a branch", pick that branch and the `/ (root)` folder, and save. The site appears at https://chaoranhu.github.io/ within a minute or two. Check every page there.
-3. In the same Pages screen, enter `www.huchaoran.com` as the custom domain and save. GitHub adds a `CNAME` file to the branch for you.
+3. In the same Pages screen, enter `huchaoran.com` as the custom domain and save. GitHub adds a `CNAME` file to the branch for you.
 4. At your domain registrar (where huchaoran.com was bought), replace the Google Sites DNS records:
    * Delete the `CNAME` record for `www` that points to `ghs.googlehosted.com` and add a `CNAME` record for `www` pointing to `chaoranhu.github.io`.
    * Delete any `A` records for the bare domain `huchaoran.com` that point to Google, and add four `A` records pointing to `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and `185.199.111.153`.
@@ -65,7 +65,7 @@ Steps 1 and 2 are already done; the site is live at https://chaoranhu.github.io/
 7. Visit https://huchaoran.com, https://www.huchaoran.com and each page to confirm everything loads from GitHub.
 8. Only then delete or unpublish the old Google Site. Every image and file the new site uses already lives in this repository, so nothing breaks when Google Sites goes away.
 
-Optional: in Settings, then Pages, use "Verify domain" for huchaoran.com so no other GitHub account can claim it.
+Optional: verify the domain so no other GitHub account can claim it. This lives in your personal account settings, not the repository: click your profile picture, then Settings, then Pages (under "Code, planning, and automation"), then "Add a domain" and enter huchaoran.com. GitHub shows a TXT record named `_github-pages-challenge-ChaoranHu`; add it at your registrar (Squarespace, under DNS settings), wait for it to take effect, then click "Verify".
 
 ## After changing the CSS or JavaScript
 
