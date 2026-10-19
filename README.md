@@ -1,4 +1,4 @@
-# huchaoran.com
+# chaoranhu.github.io (huchaoran.com)
 
 Source for Chaoran Hu's personal website, rebuilt from the original Google Site as plain HTML and CSS. GitHub Pages serves it directly; there is no build step.
 
@@ -52,10 +52,10 @@ Then open http://localhost:8000.
 
 ## Launch checklist: moving huchaoran.com from Google Sites to GitHub Pages
 
-Steps 1 and 2 are already done; the site is live at https://chaoranhu.github.io/huchaoran.github.io/.
+Steps 1 and 2 are already done; the site is live at https://chaoranhu.github.io/ (the repository is named `chaoranhu.github.io`, which makes it a GitHub user site served from the root).
 
 1. Merge the site into the branch GitHub Pages will publish (for example `main`).
-2. In the repository, open Settings, then Pages. Under "Build and deployment" choose "Deploy from a branch", pick that branch and the `/ (root)` folder, and save. The site appears at https://chaoranhu.github.io/huchaoran.github.io/ within a minute or two. Check every page there.
+2. In the repository, open Settings, then Pages. Under "Build and deployment" choose "Deploy from a branch", pick that branch and the `/ (root)` folder, and save. The site appears at https://chaoranhu.github.io/ within a minute or two. Check every page there.
 3. In the same Pages screen, enter `www.huchaoran.com` as the custom domain and save. GitHub adds a `CNAME` file to the branch for you.
 4. At your domain registrar (where huchaoran.com was bought), replace the Google Sites DNS records:
    * Delete the `CNAME` record for `www` that points to `ghs.googlehosted.com` and add a `CNAME` record for `www` pointing to `chaoranhu.github.io`.
