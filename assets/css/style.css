@@ -331,3 +331,20 @@ main.page.wide .coming-soon + h2 { margin-top: 112px; }
 .ornament-doorway { --src: url("../img/ornaments/humanistics-doorway.svg"); aspect-ratio: 124 / 100; width: 96px; }
 main.page.wide .carousel + .ornament { margin-top: 112px; }
 main.page.wide .ornament + h2 { margin-top: 0; }
+
+/* Photo categories: each title sits on a pale full width band, photos stay on white */
+main.page.wide .photo-head {
+  background: var(--pale);
+  box-shadow: 0 0 0 100vmax var(--pale);
+  clip-path: inset(0 -100vmax);
+  padding: 56px 0 48px;
+  margin: 0 0 48px;
+}
+main.page.wide .carousel + .photo-head { margin-top: 96px; }
+main.page.wide .photo-head h2 { margin: 0; }
+
+/* Sketches on the Home and Statistician pages */
+.ornament-pines { --src: url("../img/ornaments/wildlife-pines.svg"); aspect-ratio: 195 / 80; width: 150px; margin: 0 0 28px; }
+.ornament-bellcurve { --src: url("../img/ornaments/statistician-bellcurve.svg"); aspect-ratio: 170 / 100; width: 130px; margin: 0 0 20px; }
+main.page .ornament-bellcurve + h2 { margin-top: 0; border-top: none; padding-top: 0; }
+main.page.wide .photo-head:first-of-type { margin-top: -72px; }
