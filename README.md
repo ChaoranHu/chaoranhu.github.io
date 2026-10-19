@@ -1,4 +1,4 @@
-# huchaoran.com
+# chaoranhu.github.io (huchaoran.com)
 
 Source for Chaoran Hu's personal website, rebuilt from the original Google Site as plain HTML and CSS. GitHub Pages serves it directly; there is no build step.
 
@@ -14,16 +14,33 @@ Source for Chaoran Hu's personal website, rebuilt from the original Google Site 
 | `home/index.html` | Redirect from the old `/home` address |
 | `assets/css/style.css` | All styling |
 | `assets/js/carousel.js` | Photo sliders |
-| `assets/img/` | Portrait, photos, figures and section ornaments |
+| `assets/img/` | Portrait, photos and figures |
+| `assets/img/ornaments/` | Hand drawn section sketches (SVG) |
+
+## Look
+
+* Font: Cormorant Garamond (Google Fonts) for all text.
+* Colours: white page with a few greys, set as variables at the top of `style.css` (`--ink`, `--text`, `--muted`, `--line`, `--hair`, `--pale`). Photos stay in full colour on white.
+* Sections: on the Photographer and Statistician pages each title sits on a pale full width band (`<div class="section-head">`) under a small hand drawn sketch; the content below stays on white.
 
 ## Adding a photo
 
-1. Put the image in `assets/img/wildlife/`, `assets/img/nature/` or `assets/img/humanistics/` (about 1280 px wide keeps the page fast).
-2. In `photographer/index.html`, copy one `<figure>` line inside that section and change the file name. The slider buttons, dots and counter update on their own.
+1. Resize the image to about 1800 px on its long side, remove its EXIF and location data, and put it in `assets/img/wildlife/`, `assets/img/nature/` or `assets/img/humanistics/`.
+2. In `photographer/index.html`, copy one `<figure>` line inside that section, change the file name and write a short `alt` description. The slider buttons, dots and counter update on their own.
 
 A section with no photos shows "Coming soon": replace that paragraph with the carousel block given in the comment at the top of `photographer/index.html`.
 
-To add a new section, create a new folder under `assets/img/` and copy a whole `<h2>` plus `<div class="carousel">` block.
+To add a new section, create a new folder under `assets/img/` and copy a whole `<div class="section-head">` plus `<div class="carousel">` block.
+
+## Section sketches
+
+The sketches are single colour SVG files in `assets/img/ornaments/`. CSS uses each one as a mask and fills it with the text grey, so the drawing's own colour does not matter. Each has a class in `style.css`, for example `.ornament-birds`, and is placed with:
+
+```
+<span class="ornament ornament-birds" aria-hidden="true"></span>
+```
+
+To add one, save the SVG in that folder, add a `.ornament-name` rule next to the others (its `--src` path and `aspect-ratio`), and put the span above the section's `<h2>`. If you redraw an existing SVG, bump the `?v=` at the end of its path in `style.css` so browsers fetch the new drawing.
 
 ## Previewing locally
 
@@ -35,8 +52,10 @@ Then open http://localhost:8000.
 
 ## Launch checklist: moving huchaoran.com from Google Sites to GitHub Pages
 
+Steps 1 and 2 are already done; the site is live at https://chaoranhu.github.io/ (the repository is named `chaoranhu.github.io`, which makes it a GitHub user site served from the root).
+
 1. Merge the site into the branch GitHub Pages will publish (for example `main`).
-2. In the repository, open Settings, then Pages. Under "Build and deployment" choose "Deploy from a branch", pick that branch and the `/ (root)` folder, and save. The site appears at https://chaoranhu.github.io/huchaoran.github.io/ within a minute or two. Check every page there.
+2. In the repository, open Settings, then Pages. Under "Build and deployment" choose "Deploy from a branch", pick that branch and the `/ (root)` folder, and save. The site appears at https://chaoranhu.github.io/ within a minute or two. Check every page there.
 3. In the same Pages screen, enter `www.huchaoran.com` as the custom domain and save. GitHub adds a `CNAME` file to the branch for you.
 4. At your domain registrar (where huchaoran.com was bought), replace the Google Sites DNS records:
    * Delete the `CNAME` record for `www` that points to `ghs.googlehosted.com` and add a `CNAME` record for `www` pointing to `chaoranhu.github.io`.
@@ -50,4 +69,4 @@ Optional: in Settings, then Pages, use "Verify domain" for huchaoran.com so no o
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=12` and `carousel.js?v=12`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=13` and `carousel.js?v=13`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away.
