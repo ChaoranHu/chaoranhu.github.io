@@ -358,14 +358,14 @@ main.page * + .section-head { margin-top: 80px; }
 /* Statistician section sketches */
 .ornament-notebook, .ornament-browser, .ornament-newspaper, .ornament-briefcase,
 .ornament-mortarboard, .ornament-medal, .ornament-papers, .ornament-hexagon { aspect-ratio: 120 / 80; width: 110px; }
-.ornament-notebook { --src: url("../img/ornaments/statistician-notebook.svg"); }
-.ornament-browser { --src: url("../img/ornaments/statistician-browser.svg"); }
-.ornament-newspaper { --src: url("../img/ornaments/statistician-newspaper.svg"); }
-.ornament-briefcase { --src: url("../img/ornaments/statistician-briefcase.svg"); }
-.ornament-mortarboard { --src: url("../img/ornaments/statistician-mortarboard.svg"); }
-.ornament-medal { --src: url("../img/ornaments/statistician-medal.svg"); }
-.ornament-papers { --src: url("../img/ornaments/statistician-papers.svg"); }
-.ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg"); }
+.ornament-notebook { --src: url("../img/ornaments/statistician-notebook.svg?v=2"); }
+.ornament-browser { --src: url("../img/ornaments/statistician-browser.svg?v=2"); }
+.ornament-newspaper { --src: url("../img/ornaments/statistician-newspaper.svg?v=2"); }
+.ornament-briefcase { --src: url("../img/ornaments/statistician-briefcase.svg?v=2"); }
+.ornament-mortarboard { --src: url("../img/ornaments/statistician-mortarboard.svg?v=2"); }
+.ornament-medal { --src: url("../img/ornaments/statistician-medal.svg?v=2"); }
+.ornament-papers { --src: url("../img/ornaments/statistician-papers.svg?v=2"); }
+.ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg?v=2"); }
 
 /* Sketch on the Home page */
 .ornament-pines { --src: url("../img/ornaments/wildlife-pines.svg"); aspect-ratio: 195 / 80; width: 150px; margin: 0 0 28px; }
