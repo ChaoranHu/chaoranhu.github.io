@@ -370,9 +370,8 @@ main.page * + .section-head { margin-top: 80px; }
 .ornament-papers { --src: url("../img/ornaments/statistician-papers.svg?v=2"); }
 .ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg?v=2"); }
 
-/* Pines sketch beside the name in the header, like a logo */
+/* Pines sketch at the right end of the header, like a logo */
 .site-header .inner { align-items: center; }
-.site-title { display: inline-flex; align-items: center; gap: 14px; }
 .logo-pines {
   display: block;
   width: 100px;
