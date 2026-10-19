@@ -332,19 +332,40 @@ main.page.wide .coming-soon + h2 { margin-top: 112px; }
 main.page.wide .carousel + .ornament { margin-top: 112px; }
 main.page.wide .ornament + h2 { margin-top: 0; }
 
-/* Photo categories: each title sits on a pale full width band, photos stay on white */
-main.page.wide .photo-head {
+/* Section titles (photo categories and Statistician sections) sit on a pale
+   full width band with a sketch above them; the content below stays on white */
+main.page .section-head {
+  text-align: center;
   background: var(--pale);
   box-shadow: 0 0 0 100vmax var(--pale);
   clip-path: inset(0 -100vmax);
   padding: 56px 0 48px;
   margin: 0 0 48px;
 }
-main.page.wide .carousel + .photo-head { margin-top: 96px; }
-main.page.wide .photo-head h2 { margin: 0; }
+main.page .section-head:first-of-type { margin-top: -72px; }
+main.page .section-head h2 { margin: 0; border-top: none; padding-top: 0; }
+main.page .section-head h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  margin: 16px auto 0;
+  border-top: 1px solid var(--ink);
+}
+main.page .section-head .ornament { margin: 0 auto 20px; }
+main.page.wide .carousel + .section-head { margin-top: 96px; }
+main.page * + .section-head { margin-top: 80px; }
 
-/* Sketches on the Home and Statistician pages */
+/* Statistician section sketches */
+.ornament-notebook, .ornament-browser, .ornament-newspaper, .ornament-briefcase,
+.ornament-mortarboard, .ornament-medal, .ornament-papers, .ornament-hexagon { aspect-ratio: 120 / 80; width: 110px; }
+.ornament-notebook { --src: url("../img/ornaments/statistician-notebook.svg"); }
+.ornament-browser { --src: url("../img/ornaments/statistician-browser.svg"); }
+.ornament-newspaper { --src: url("../img/ornaments/statistician-newspaper.svg"); }
+.ornament-briefcase { --src: url("../img/ornaments/statistician-briefcase.svg"); }
+.ornament-mortarboard { --src: url("../img/ornaments/statistician-mortarboard.svg"); }
+.ornament-medal { --src: url("../img/ornaments/statistician-medal.svg"); }
+.ornament-papers { --src: url("../img/ornaments/statistician-papers.svg"); }
+.ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg"); }
+
+/* Sketch on the Home page */
 .ornament-pines { --src: url("../img/ornaments/wildlife-pines.svg"); aspect-ratio: 195 / 80; width: 150px; margin: 0 0 28px; }
-.ornament-bellcurve { --src: url("../img/ornaments/statistician-bellcurve.svg"); aspect-ratio: 170 / 100; width: 130px; margin: 0 0 20px; }
-main.page .ornament-bellcurve + h2 { margin-top: 0; border-top: none; padding-top: 0; }
-main.page.wide .photo-head:first-of-type { margin-top: -72px; }
