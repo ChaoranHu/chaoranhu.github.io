@@ -2,12 +2,13 @@
 :root {
   /* Grey scale, darkest to lightest */
   --ink: #111111;   /* name, headings, links */
-  --text: #3a3a3a;  /* body text */
+  --text: #3a3a3a;  /* body text and sketches */
   --muted: #858585; /* small labels, captions, footer */
   --line: #9a9a9a;  /* section rules */
   --hair: #e2e2e2;  /* faint dividers */
-  --pale: #f3f3f2;  /* footer band and empty sections */
+  --pale: #f3f3f2;  /* section bands and footer */
   --bg: #ffffff;
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
   --max: 1040px;
   --text-max: 720px;
 }
@@ -18,7 +19,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  font-family: var(--serif);
   font-weight: 400;
   font-size: 20px;
   font-variant-numeric: lining-nums;
@@ -28,6 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, strong { color: var(--ink); }
 strong { font-weight: 600; }
 
 a {
@@ -40,7 +42,7 @@ a {
 }
 a:hover { text-decoration-color: var(--ink); }
 
-/* Header and navigation */
+/* Header: the name on the left, the pines sketch at the right end */
 .site-header {
   position: sticky;
   top: 0;
@@ -54,18 +56,27 @@ a:hover { text-decoration-color: var(--ink); }
   margin: 0 auto;
   padding: 22px 24px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px 32px;
 }
 .site-title {
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   text-decoration: none;
 }
+.logo-pines {
+  display: block;
+  width: 100px;
+  aspect-ratio: 195 / 80;
+  margin-top: -6px;
+  background-color: var(--text);
+  -webkit-mask: url("../img/ornaments/wildlife-pines.svg") center / contain no-repeat;
+  mask: url("../img/ornaments/wildlife-pines.svg") center / contain no-repeat;
+}
+@media (max-width: 760px) { .logo-pines { width: 80px; } }
 
 /* Home */
 .home {
@@ -79,13 +90,10 @@ a:hover { text-decoration-color: var(--ink); }
   align-items: center;
   align-content: center;
 }
-/* The links row spans both columns, centred */
-.home .social { grid-column: 1 / -1; justify-content: center; margin: 0; }
 .home h1 {
   font-weight: 300;
-  font-size: clamp(30px, 4.2vw, 46px);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-size: clamp(38px, 5.4vw, 60px);
+  line-height: 1.12;
   margin: 0 0 0.2em;
 }
 .home h1 a {
@@ -102,11 +110,14 @@ a:hover { text-decoration-color: var(--ink); }
   .home .portrait { order: -1; max-width: 360px; }
 }
 
+/* The links row spans both columns, centred, under a thin line */
 .social {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px 26px;
-  margin: 48px 0 0;
+  margin: 0;
   padding: 28px 0 0;
   border-top: 1px solid var(--line);
   list-style: none;
@@ -129,32 +140,89 @@ main.page {
 }
 main.page.wide { max-width: var(--max); }
 main.page h1 {
-  font-size: clamp(28px, 4vw, 38px);
+  font-size: clamp(36px, 5vw, 52px);
   font-weight: 300;
-  letter-spacing: -0.01em;
   line-height: 1.25;
   margin: 0 0 1.2em;
 }
 main.page h2 {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 400;
   margin: 72px 0 20px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 main.page h2:first-child { margin-top: 0; }
 main.page h1 + h2 { margin-top: 48px; }
+main.page.wide h2 { font-size: 34px; font-weight: 300; }
 main.page ul, main.page ol { padding-left: 1.2em; }
 main.page li { margin: 0.4em 0; }
 main.page li::marker { color: var(--muted); }
 main.page li ul { margin: 0.3em 0; }
 
-.pubs li { margin-bottom: 1em; }
+/* Section titles (photo categories and Statistician sections) sit on a pale
+   full width band with a sketch above them; the content below stays on white */
+main.page .section-head {
+  text-align: center;
+  background: var(--pale);
+  box-shadow: 0 0 0 100vmax var(--pale);
+  clip-path: inset(0 -100vmax);
+  padding: 56px 0 48px;
+  margin: 0 0 48px;
+}
+main.page .section-head:first-of-type { margin-top: -72px; }
+main.page * + .section-head { margin-top: 80px; }
+main.page.wide .carousel + .section-head { margin-top: 96px; }
+main.page .section-head h2 { margin: 0; border-top: none; padding-top: 0; }
+main.page .section-head h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  margin: 16px auto 0;
+  border-top: 1px solid var(--ink);
+}
 
+/* Hand drawn sketches, tinted with the text grey through a mask.
+   Bump ?v= on a file's path when it is redrawn. */
+.ornament {
+  display: block;
+  width: 120px;
+  margin: 0 auto 20px;
+  background-color: var(--text);
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+}
+.ornament-birds { --src: url("../img/ornaments/wildlife-birds.svg"); aspect-ratio: 170 / 90; }
+.ornament-reeds { --src: url("../img/ornaments/nature-reeds.svg"); aspect-ratio: 170 / 110; }
+.ornament-doorway { --src: url("../img/ornaments/humanistics-doorway.svg"); aspect-ratio: 124 / 100; width: 96px; }
+.ornament-notebook, .ornament-browser, .ornament-newspaper, .ornament-briefcase,
+.ornament-mortarboard, .ornament-medal, .ornament-papers, .ornament-hexagon { aspect-ratio: 120 / 80; width: 110px; }
+.ornament-notebook { --src: url("../img/ornaments/statistician-notebook.svg?v=2"); }
+.ornament-browser { --src: url("../img/ornaments/statistician-browser.svg?v=2"); }
+.ornament-newspaper { --src: url("../img/ornaments/statistician-newspaper.svg?v=2"); }
+.ornament-briefcase { --src: url("../img/ornaments/statistician-briefcase.svg?v=2"); }
+.ornament-mortarboard { --src: url("../img/ornaments/statistician-mortarboard.svg?v=2"); }
+.ornament-medal { --src: url("../img/ornaments/statistician-medal.svg?v=2"); }
+.ornament-papers { --src: url("../img/ornaments/statistician-papers.svg?v=2"); }
+.ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg?v=2"); }
+
+/* Statistician page: larger list text under the section titles */
+main.page.cv ul { font-size: 23px; line-height: 1.55; }
+main.page.cv li ul { font-size: 21px; }
+@media (max-width: 760px) {
+  main.page.cv ul { font-size: 21px; }
+  main.page.cv li ul { font-size: 19px; }
+}
+
+/* Note pages (WHODrug, E9(R1)): larger reading text */
+main.page.note { font-size: 23px; line-height: 1.65; }
+main.page.note h2 { font-size: 30px; }
 .note-figure { margin: 40px 0; }
 .note-figure img { max-width: 100%; height: auto; border: 1px solid var(--hair); }
+@media (max-width: 760px) {
+  main.page.note { font-size: 21px; }
+  main.page.note h2 { font-size: 27px; }
+}
 
 /* Photo carousels: one photo at a time, swipe or use the arrows */
 .carousel {
@@ -162,6 +230,7 @@ main.page li ul { margin: 0.3em 0; }
   max-width: 880px;
   margin: 0 auto;
 }
+main.page.wide .carousel { max-width: var(--max); }
 .carousel .track {
   display: flex;
   overflow-x: auto;
@@ -199,12 +268,12 @@ main.page li ul { margin: 0.3em 0; }
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   color: var(--ink);
-  font: 400 26px/38px "Cormorant Garamond", Garamond, serif;
+  font: 400 26px/38px var(--serif);
   text-align: center;
   cursor: pointer;
   transition: opacity 0.2s ease, background 0.15s ease, color 0.15s ease;
 }
-.carousel .nav:hover { background: var(--ink); color: #fff; }
+.carousel .nav:hover { background: var(--text); border-color: var(--text); color: #fff; }
 .carousel .nav.prev { left: 16px; }
 .carousel .nav.next { right: 16px; }
 .carousel .nav[disabled] { opacity: 0; pointer-events: none; }
@@ -239,162 +308,15 @@ main.page li ul { margin: 0.3em 0; }
   .carousel .nav { display: none; } /* phones: swipe instead */
 }
 
+/* Footer: a pale band at the foot of every page */
 .site-footer {
-  max-width: var(--max);
-  margin: 0 auto;
-  border-top: 1px solid var(--hair);
+  margin-top: 40px;
+  background: var(--pale);
   color: var(--muted);
   font-size: 14px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 28px 24px 40px;
-}
-
-/* Photographer page: wider photos and centered section titles */
-main.page.wide h2 { text-align: center; border-top: none; padding-top: 0; }
-main.page.wide h2::after {
-  content: "";
-  display: block;
-  width: 40px;
-  margin: 16px auto 0;
-  border-top: 1px solid var(--ink);
-}
-main.page.wide .carousel { max-width: var(--max); }
-main.page.wide .carousel + h2 { margin-top: 112px; }
-.site-footer { text-align: center; }
-.coming-soon {
   text-align: center;
-  color: var(--muted);
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* Display serif sizes for the name and headings */
-:root { --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif; }
-.site-title {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  text-transform: none;
-}
-.home h1 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(38px, 5.4vw, 60px);
-  line-height: 1.12;
-  letter-spacing: 0;
-}
-main.page h1 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(36px, 5vw, 52px);
-  letter-spacing: 0;
-}
-main.page h2 {
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-}
-main.page.wide h2 { font-size: 34px; font-weight: 300; }
-
-/* Greys: dark text, mid grey labels and rules, a pale band at the foot */
-h1, h2, h3, .site-title, strong { color: var(--ink); }
-.site-footer {
-  max-width: none;
-  margin-top: 40px;
-  border-top: none;
-  background: var(--pale);
   padding: 36px 24px 44px;
 }
 .home + .site-footer { margin-top: 0; }
-.coming-soon {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 72px 24px;
-  background: var(--pale);
-}
-.carousel .nav:hover { background: #3a3a3a; border-color: #3a3a3a; }
-main.page.wide .coming-soon + h2 { margin-top: 112px; }
-
-/* Hand drawn ornaments above the photo section titles, tinted with the text grey */
-.ornament {
-  display: block;
-  width: 120px;
-  margin: 0 auto 20px;
-  background-color: var(--text);
-  -webkit-mask: var(--src) center / contain no-repeat;
-  mask: var(--src) center / contain no-repeat;
-}
-.ornament-birds { --src: url("../img/ornaments/wildlife-birds.svg"); aspect-ratio: 170 / 90; }
-.ornament-reeds { --src: url("../img/ornaments/nature-reeds.svg"); aspect-ratio: 170 / 110; }
-.ornament-doorway { --src: url("../img/ornaments/humanistics-doorway.svg"); aspect-ratio: 124 / 100; width: 96px; }
-main.page.wide .carousel + .ornament { margin-top: 112px; }
-main.page.wide .ornament + h2 { margin-top: 0; }
-
-/* Section titles (photo categories and Statistician sections) sit on a pale
-   full width band with a sketch above them; the content below stays on white */
-main.page .section-head {
-  text-align: center;
-  background: var(--pale);
-  box-shadow: 0 0 0 100vmax var(--pale);
-  clip-path: inset(0 -100vmax);
-  padding: 56px 0 48px;
-  margin: 0 0 48px;
-}
-main.page .section-head:first-of-type { margin-top: -72px; }
-main.page .section-head h2 { margin: 0; border-top: none; padding-top: 0; }
-main.page .section-head h2::after {
-  content: "";
-  display: block;
-  width: 40px;
-  margin: 16px auto 0;
-  border-top: 1px solid var(--ink);
-}
-main.page .section-head .ornament { margin: 0 auto 20px; }
-main.page.wide .carousel + .section-head { margin-top: 96px; }
-main.page * + .section-head { margin-top: 80px; }
-
-/* Statistician section sketches */
-.ornament-notebook, .ornament-browser, .ornament-newspaper, .ornament-briefcase,
-.ornament-mortarboard, .ornament-medal, .ornament-papers, .ornament-hexagon { aspect-ratio: 120 / 80; width: 110px; }
-.ornament-notebook { --src: url("../img/ornaments/statistician-notebook.svg?v=2"); }
-.ornament-browser { --src: url("../img/ornaments/statistician-browser.svg?v=2"); }
-.ornament-newspaper { --src: url("../img/ornaments/statistician-newspaper.svg?v=2"); }
-.ornament-briefcase { --src: url("../img/ornaments/statistician-briefcase.svg?v=2"); }
-.ornament-mortarboard { --src: url("../img/ornaments/statistician-mortarboard.svg?v=2"); }
-.ornament-medal { --src: url("../img/ornaments/statistician-medal.svg?v=2"); }
-.ornament-papers { --src: url("../img/ornaments/statistician-papers.svg?v=2"); }
-.ornament-hexagon { --src: url("../img/ornaments/statistician-hexagon.svg?v=2"); }
-
-/* Pines sketch at the right end of the header, like a logo */
-.site-header .inner { align-items: center; }
-.logo-pines {
-  display: block;
-  width: 100px;
-  aspect-ratio: 195 / 80;
-  margin-top: -6px;
-  background-color: var(--text);
-  -webkit-mask: url("../img/ornaments/wildlife-pines.svg") center / contain no-repeat;
-  mask: url("../img/ornaments/wildlife-pines.svg") center / contain no-repeat;
-}
-@media (max-width: 760px) { .logo-pines { width: 80px; } }
-
-/* Statistician page: larger list text under the section titles */
-main.page.cv ul { font-size: 23px; line-height: 1.55; }
-main.page.cv li ul { font-size: 21px; }
-@media (max-width: 760px) {
-  main.page.cv ul { font-size: 21px; }
-  main.page.cv li ul { font-size: 19px; }
-}
-
-/* Note pages (WHODrug, E9(R1)): larger reading text */
-main.page.note { font-size: 23px; line-height: 1.65; }
-main.page.note h2 { font-size: 30px; }
-@media (max-width: 760px) {
-  main.page.note { font-size: 21px; }
-  main.page.note h2 { font-size: 27px; }
-}
