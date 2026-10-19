@@ -382,3 +382,11 @@ main.page.cv li ul { font-size: 21px; }
   main.page.cv ul { font-size: 21px; }
   main.page.cv li ul { font-size: 19px; }
 }
+
+/* Note pages (WHODrug, E9(R1)): larger reading text */
+main.page.note { font-size: 23px; line-height: 1.65; }
+main.page.note h2 { font-size: 30px; }
+@media (max-width: 760px) {
+  main.page.note { font-size: 21px; }
+  main.page.note h2 { font-size: 27px; }
+}
