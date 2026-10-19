@@ -77,7 +77,11 @@ a:hover { text-decoration-color: var(--ink); }
   grid-template-columns: 1.15fr 1fr;
   gap: 72px;
   align-items: center;
+  align-content: center;
 }
+/* The sketch and the links row span both columns, centred */
+.home .ornament-pines { grid-column: 1 / -1; justify-self: center; margin: 0; }
+.home .social { grid-column: 1 / -1; justify-content: center; margin: 0; }
 .home h1 {
   font-weight: 300;
   font-size: clamp(30px, 4.2vw, 46px);
@@ -97,6 +101,7 @@ a:hover { text-decoration-color: var(--ink); }
 @media (max-width: 760px) {
   .home { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 64px; }
   .home .portrait { order: -1; max-width: 360px; }
+  .home .ornament-pines { order: -2; }
 }
 
 .social {
@@ -369,3 +374,19 @@ main.page * + .section-head { margin-top: 80px; }
 
 /* Sketch on the Home page */
 .ornament-pines { --src: url("../img/ornaments/wildlife-pines.svg"); aspect-ratio: 195 / 80; width: 150px; margin: 0 0 28px; }
+
+/* Statistician page: larger list text under the section titles */
+main.page.cv ul { font-size: 23px; line-height: 1.55; }
+main.page.cv li ul { font-size: 21px; }
+@media (max-width: 760px) {
+  main.page.cv ul { font-size: 21px; }
+  main.page.cv li ul { font-size: 19px; }
+}
+
+/* Note pages (WHODrug, E9(R1)): larger reading text */
+main.page.note { font-size: 23px; line-height: 1.65; }
+main.page.note h2 { font-size: 30px; }
+@media (max-width: 760px) {
+  main.page.note { font-size: 21px; }
+  main.page.note h2 { font-size: 27px; }
+}
