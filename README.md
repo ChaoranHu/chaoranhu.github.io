@@ -37,7 +37,7 @@ To add a new section, create a new folder under `assets/img/` and copy a whole `
 
 ## Section engravings
 
-The pictures above the section titles (and the pines in the header) are old etchings and engravings that are free to use, public domain or CC0, mostly from Wikimedia Commons. Each is a PNG in `assets/img/ornaments/` whose transparency holds the drawing, with softly broken edges like a hand drawn vignette. CSS uses each one as a mask and fills it with the text grey, so every picture shows in the same ink colour. Each has a class in `style.css`, for example `.ornament-birds`, and is placed with:
+The pictures above the section titles (and the pines in the header) are old etchings and engravings that are free to use, public domain or CC0, mostly from Wikimedia Commons. Each is a PNG in `assets/img/ornaments/` whose transparency holds the drawing, with softly broken edges like a hand drawn vignette. Each picture is already coloured in the text grey (#3a3a3a), so they all share one ink colour, and CSS shows it as a plain background image. Each has a class in `style.css`, for example `.ornament-birds`, and is placed with:
 
 ```html
 <span class="ornament ornament-birds" aria-hidden="true"></span>
@@ -62,7 +62,7 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=18` and `carousel.js?v=18`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=19` and `carousel.js?v=19`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
 
 ## Previewing locally
 

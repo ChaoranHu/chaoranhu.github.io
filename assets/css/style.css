@@ -72,9 +72,7 @@ a:hover { text-decoration-color: var(--ink); }
   width: 120px;
   aspect-ratio: 541 / 300;
   margin: -14px 0 -10px;
-  background-color: var(--text);
-  -webkit-mask: url("../img/ornaments/pines.png?v=2") center / contain no-repeat;
-  mask: url("../img/ornaments/pines.png?v=2") center / contain no-repeat;
+  background: url("../img/ornaments/pines.png?v=3") center / contain no-repeat;
 }
 @media (max-width: 760px) { .logo-pines { width: 96px; } }
 
@@ -182,7 +180,8 @@ main.page .section-head h2::after {
   border-top: 1px solid var(--ink);
 }
 
-/* Old engravings above section titles, tinted with the text grey through a mask.
+/* Old engravings above section titles. The PNGs are already drawn in the text grey (#3a3a3a)
+   with transparency, so they are shown as plain background images.
    Each box is up to 150px tall (120px on phones) and at most 340px wide; --r is the image's width / height.
    Bump ?v= on a file's path when it is replaced. */
 .ornament {
@@ -191,22 +190,20 @@ main.page .section-head h2::after {
   width: min(100%, 340px, calc(var(--h) * var(--r)));
   aspect-ratio: var(--r);
   margin: 0 auto 24px;
-  background-color: var(--text);
-  -webkit-mask: var(--src) center / contain no-repeat;
-  mask: var(--src) center / contain no-repeat;
+  background: var(--src) center / contain no-repeat;
 }
 @media (max-width: 760px) { .ornament { --h: 120px; } }
-.ornament-birds { --src: url("../img/ornaments/wildlife.png"); --r: 509 / 450; }
-.ornament-reeds { --src: url("../img/ornaments/nature.png"); --r: 711 / 450; }
-.ornament-doorway { --src: url("../img/ornaments/humanistics.png?v=2"); --r: 344 / 450; }
-.ornament-notebook { --src: url("../img/ornaments/notes.png"); --r: 383 / 450; }
-.ornament-browser { --src: url("../img/ornaments/web-apps.png"); --r: 373 / 450; }
-.ornament-newspaper { --src: url("../img/ornaments/news.png"); --r: 324 / 450; }
-.ornament-briefcase { --src: url("../img/ornaments/work.png"); --r: 186 / 184; }
-.ornament-mortarboard { --src: url("../img/ornaments/education.png"); --r: 653 / 450; }
-.ornament-medal { --src: url("../img/ornaments/honors.png"); --r: 706 / 450; }
-.ornament-papers { --src: url("../img/ornaments/publications.png"); --r: 846 / 450; }
-.ornament-hexagon { --src: url("../img/ornaments/software.png"); --r: 703 / 450; }
+.ornament-birds { --src: url("../img/ornaments/wildlife.png?v=3"); --r: 509 / 450; }
+.ornament-reeds { --src: url("../img/ornaments/nature.png?v=3"); --r: 711 / 450; }
+.ornament-doorway { --src: url("../img/ornaments/humanistics.png?v=3"); --r: 344 / 450; }
+.ornament-notebook { --src: url("../img/ornaments/notes.png?v=3"); --r: 383 / 450; }
+.ornament-browser { --src: url("../img/ornaments/web-apps.png?v=3"); --r: 373 / 450; }
+.ornament-newspaper { --src: url("../img/ornaments/news.png?v=3"); --r: 324 / 450; }
+.ornament-briefcase { --src: url("../img/ornaments/work.png?v=3"); --r: 186 / 184; }
+.ornament-mortarboard { --src: url("../img/ornaments/education.png?v=3"); --r: 653 / 450; }
+.ornament-medal { --src: url("../img/ornaments/honors.png?v=3"); --r: 706 / 450; }
+.ornament-papers { --src: url("../img/ornaments/publications.png?v=3"); --r: 846 / 450; }
+.ornament-hexagon { --src: url("../img/ornaments/software.png?v=3"); --r: 703 / 450; }
 
 /* Statistician page: larger list text under the section titles */
 main.page.cv ul { font-size: 23px; line-height: 1.55; }
