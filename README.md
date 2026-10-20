@@ -47,10 +47,10 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 | Section | File | Source |
 | --- | --- | --- |
-| Header | `pines.png` | Snowy peak at Chamonix, etching, Rijksmuseum (CC0) |
+| Header | `pines.png` | Firs in an alpine meadow, Chamonix, etching, Rijksmuseum (CC0) |
 | Wildlife | `wildlife.png` | Ducks at Dawn, Frank W. Benson (public domain) |
 | Nature | `nature.png` | Woodland view with a pond, etching, Rijksmuseum (CC0) |
-| Humanistics | `humanistics.png` | The Two Doorways, James McNeill Whistler (public domain) |
+| Humanistics | `humanistics.png` | An Archway, Chioggia, Muirhead Bone (public domain) |
 | my Notes | `notes.png` | Man writing at a desk, Tony Johannot (public domain) |
 | Web Apps | `web-apps.png` | Buckingham telescope, wood engraving, 1869 (public domain) |
 | News Coverage | `news.png` | The newspaper reader, Adolph Menzel (public domain) |

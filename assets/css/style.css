@@ -70,11 +70,11 @@ a:hover { text-decoration-color: var(--ink); }
 .logo-pines {
   display: block;
   width: 120px;
-  aspect-ratio: 406 / 270;
+  aspect-ratio: 541 / 300;
   margin: -14px 0 -10px;
   background-color: var(--text);
-  -webkit-mask: url("../img/ornaments/pines.png") center / contain no-repeat;
-  mask: url("../img/ornaments/pines.png") center / contain no-repeat;
+  -webkit-mask: url("../img/ornaments/pines.png?v=2") center / contain no-repeat;
+  mask: url("../img/ornaments/pines.png?v=2") center / contain no-repeat;
 }
 @media (max-width: 760px) { .logo-pines { width: 96px; } }
 
@@ -198,7 +198,7 @@ main.page .section-head h2::after {
 @media (max-width: 760px) { .ornament { --h: 120px; } }
 .ornament-birds { --src: url("../img/ornaments/wildlife.png"); --r: 509 / 450; }
 .ornament-reeds { --src: url("../img/ornaments/nature.png"); --r: 711 / 450; }
-.ornament-doorway { --src: url("../img/ornaments/humanistics.png"); --r: 699 / 450; }
+.ornament-doorway { --src: url("../img/ornaments/humanistics.png?v=2"); --r: 344 / 450; }
 .ornament-notebook { --src: url("../img/ornaments/notes.png"); --r: 383 / 450; }
 .ornament-browser { --src: url("../img/ornaments/web-apps.png"); --r: 373 / 450; }
 .ornament-newspaper { --src: url("../img/ornaments/news.png"); --r: 324 / 450; }
