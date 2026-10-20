@@ -17,7 +17,7 @@ Source for Chaoran Hu's personal website, written as plain HTML and CSS. GitHub 
 | `assets/img/portrait.jpg` | Home page portrait |
 | `assets/img/wildlife/`, `nature/`, `humanistics/` | Photos, one folder per section |
 | `assets/img/notes/` | Figures used in the notes |
-| `assets/img/ornaments/` | Hand drawn sketches (SVG) |
+| `assets/img/ornaments/` | Old engravings above the section titles and in the header (PNG) |
 | `assets/img/icons/`, `favicon.ico` | Browser tab and home screen icons |
 | `CNAME` | Custom domain for GitHub Pages; keep this file |
 
@@ -25,8 +25,8 @@ Source for Chaoran Hu's personal website, written as plain HTML and CSS. GitHub 
 
 * Font: Cormorant Garamond (Google Fonts) for all text.
 * Colours: white page with a few greys, set as variables at the top of `style.css` (`--ink`, `--text`, `--muted`, `--line`, `--hair`, `--pale`). Photos stay in full colour on white.
-* Header: the name on the left links home, and the pines sketch sits at the right end.
-* Sections: on the Photographer and Statistician pages each title sits on a pale full width band (`<div class="section-head">`) under a small hand drawn sketch; the content below stays on white.
+* Header: the name on the left links home, and the pines engraving sits at the right end.
+* Sections: on the Photographer and Statistician pages each title sits on a pale full width band (`<div class="section-head">`) under a small old engraving; the content below stays on white.
 
 ## Adding a photo
 
@@ -35,19 +35,34 @@ Source for Chaoran Hu's personal website, written as plain HTML and CSS. GitHub 
 
 To add a new section, create a new folder under `assets/img/` and copy a whole `<div class="section-head">` plus `<div class="carousel">` block.
 
-## Section sketches
+## Section engravings
 
-The sketches are single colour SVG files in `assets/img/ornaments/`. CSS uses each one as a mask and fills it with the text grey, so the drawing's own colour does not matter. Each has a class in `style.css`, for example `.ornament-birds`, and is placed with:
+The pictures above the section titles (and the pines in the header) are old etchings and engravings that are free to use, public domain or CC0, mostly from Wikimedia Commons. Each is a PNG in `assets/img/ornaments/` whose transparency holds the drawing, with softly broken edges like a hand drawn vignette. CSS uses each one as a mask and fills it with the text grey, so every picture shows in the same ink colour. Each has a class in `style.css`, for example `.ornament-birds`, and is placed with:
 
-```
+```html
 <span class="ornament ornament-birds" aria-hidden="true"></span>
 ```
 
-To add one, save the SVG in that folder, add a `.ornament-name` rule next to the others (its `--src` path and `aspect-ratio`), and put the span above the section's `<h2>`. If you redraw an existing SVG, bump the `?v=` at the end of its path in `style.css` so browsers fetch the new drawing.
+To add one, save the PNG in that folder, add a `.ornament-name` rule next to the others (its `--src` path and `--r`, the image's width / height), and put the span above the section's `<h2>`. If you replace an existing picture, add or bump a `?v=` at the end of its path in `style.css` so browsers fetch the new one.
+
+| Section | File | Source |
+| --- | --- | --- |
+| Header | `pines.png` | Snowy peak at Chamonix, etching, Rijksmuseum (CC0) |
+| Wildlife | `wildlife.png` | Ducks at Dawn, Frank W. Benson (public domain) |
+| Nature | `nature.png` | Woodland view with a pond, etching, Rijksmuseum (CC0) |
+| Humanistics | `humanistics.png` | The Two Doorways, James McNeill Whistler (public domain) |
+| my Notes | `notes.png` | Man writing at a desk, Tony Johannot (public domain) |
+| Web Apps | `web-apps.png` | Buckingham telescope, wood engraving, 1869 (public domain) |
+| News Coverage | `news.png` | The newspaper reader, Adolph Menzel (public domain) |
+| Work Experience | `work.png` | Writing table, James H. Worman (public domain) |
+| Education | `education.png` | New Quadrangle, Trinity College, Oxford, etching (public domain) |
+| Honors and Awards | `honors.png` | Wreath and pen, William Harry Rogers (public domain) |
+| Selected Publications | `publications.png` | Books on a desk, from Erasmus of Rotterdam, Albrecht Dürer, 1526 (public domain) |
+| Software | `software.png` | Grant calculating machine, 1877 (public domain) |
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=17` and `carousel.js?v=17`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=18` and `carousel.js?v=18`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
 
 ## Previewing locally
 
