@@ -47,9 +47,9 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 | Section | File | Source |
 | --- | --- | --- |
-| Header | `pines.png` | Firs in an alpine meadow, Chamonix, etching, Rijksmuseum (CC0) |
+| Header | `pines.png` | Mountain landscape with firs, ink and wash, Rijksmuseum (CC0) |
 | Wildlife | `wildlife.png` | Ducks at Dawn, Frank W. Benson (public domain) |
-| Nature | `nature.png` | Woodland view with a pond, etching, Rijksmuseum (CC0) |
+| Nature | `nature.png` | Mountain Meadow, Alexandre Calame, 1840, National Gallery of Art (CC0) |
 | Humanistics | `humanistics.png` | An Archway, Chioggia, Muirhead Bone (public domain) |
 | my Notes | `notes.png` | Man writing at a desk, Tony Johannot (public domain) |
 | Web Apps | `web-apps.png` | Buckingham telescope, wood engraving, 1869 (public domain) |
@@ -62,7 +62,7 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=19` and `carousel.js?v=20`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=20` and `carousel.js?v=20`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
 
 ## Previewing locally
 

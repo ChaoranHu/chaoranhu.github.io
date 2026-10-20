@@ -70,9 +70,9 @@ a:hover { text-decoration-color: var(--ink); }
 .logo-pines {
   display: block;
   width: 120px;
-  aspect-ratio: 541 / 300;
+  aspect-ratio: 341 / 228;
   margin: -14px 0 -10px;
-  background: url("../img/ornaments/pines.png?v=3") center / contain no-repeat;
+  background: url("../img/ornaments/pines.png?v=4") center / contain no-repeat;
 }
 @media (max-width: 760px) { .logo-pines { width: 96px; } }
 
@@ -194,7 +194,7 @@ main.page .section-head h2::after {
 }
 @media (max-width: 760px) { .ornament { --h: 120px; } }
 .ornament-birds { --src: url("../img/ornaments/wildlife.png?v=3"); --r: 509 / 450; }
-.ornament-reeds { --src: url("../img/ornaments/nature.png?v=3"); --r: 711 / 450; }
+.ornament-reeds { --src: url("../img/ornaments/nature.png?v=4"); --r: 329 / 450; }
 .ornament-doorway { --src: url("../img/ornaments/humanistics.png?v=3"); --r: 344 / 450; }
 .ornament-notebook { --src: url("../img/ornaments/notes.png?v=3"); --r: 383 / 450; }
 .ornament-browser { --src: url("../img/ornaments/web-apps.png?v=3"); --r: 373 / 450; }
