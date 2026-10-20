@@ -47,7 +47,7 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 | Section | File | Source |
 | --- | --- | --- |
-| Header | `pines.png` | A stand of firs, pencil study, Rijksmuseum (CC0) |
+| Header | `pines.png` | Mountain landscape with firs, ink and wash, Rijksmuseum (CC0) |
 | Wildlife | `wildlife.png` | Ducks at Dawn, Frank W. Benson (public domain) |
 | Nature | `nature.png` | Mountain Meadow, Alexandre Calame, 1840, National Gallery of Art (CC0) |
 | Humanistics | `humanistics.png` | An Archway, Chioggia, Muirhead Bone (public domain) |
