@@ -3,7 +3,8 @@
 document.querySelectorAll(".carousel").forEach((carousel) => {
   const track = carousel.querySelector(".track");
   const slides = Array.from(track.children);
-  if (slides.length === 0) return;
+  // A single photo needs no arrows, counter or dots.
+  if (slides.length < 2) return;
 
   const prev = document.createElement("button");
   prev.className = "nav prev";
