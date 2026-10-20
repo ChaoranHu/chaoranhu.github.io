@@ -197,7 +197,7 @@ main.page .section-head h2::after {
 }
 @media (max-width: 760px) { .ornament { --h: 120px; } }
 .ornament-birds { --src: url("../img/ornaments/wildlife.png"); --r: 509 / 450; }
-.ornament-reeds { --src: url("../img/ornaments/nature.png"); --r: 555 / 450; }
+.ornament-reeds { --src: url("../img/ornaments/nature.png"); --r: 711 / 450; }
 .ornament-doorway { --src: url("../img/ornaments/humanistics.png"); --r: 699 / 450; }
 .ornament-notebook { --src: url("../img/ornaments/notes.png"); --r: 383 / 450; }
 .ornament-browser { --src: url("../img/ornaments/web-apps.png"); --r: 373 / 450; }
@@ -205,7 +205,7 @@ main.page .section-head h2::after {
 .ornament-briefcase { --src: url("../img/ornaments/work.png"); --r: 186 / 184; }
 .ornament-mortarboard { --src: url("../img/ornaments/education.png"); --r: 653 / 450; }
 .ornament-medal { --src: url("../img/ornaments/honors.png"); --r: 706 / 450; }
-.ornament-papers { --src: url("../img/ornaments/publications.png"); --r: 549 / 450; }
+.ornament-papers { --src: url("../img/ornaments/publications.png"); --r: 846 / 450; }
 .ornament-hexagon { --src: url("../img/ornaments/software.png"); --r: 703 / 450; }
 
 /* Statistician page: larger list text under the section titles */

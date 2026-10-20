@@ -49,7 +49,7 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 | --- | --- | --- |
 | Header | `pines.png` | Snowy peak at Chamonix, etching, Rijksmuseum (CC0) |
 | Wildlife | `wildlife.png` | Ducks at Dawn, Frank W. Benson (public domain) |
-| Nature | `nature.png` | Wooded landscape with two men, etching, Rijksmuseum (CC0) |
+| Nature | `nature.png` | Woodland view with a pond, etching, Rijksmuseum (CC0) |
 | Humanistics | `humanistics.png` | The Two Doorways, James McNeill Whistler (public domain) |
 | my Notes | `notes.png` | Man writing at a desk, Tony Johannot (public domain) |
 | Web Apps | `web-apps.png` | Buckingham telescope, wood engraving, 1869 (public domain) |
@@ -57,7 +57,7 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 | Work Experience | `work.png` | Writing table, James H. Worman (public domain) |
 | Education | `education.png` | New Quadrangle, Trinity College, Oxford, etching (public domain) |
 | Honors and Awards | `honors.png` | Wreath and pen, William Harry Rogers (public domain) |
-| Selected Publications | `publications.png` | Quill on books, James H. Worman (public domain) |
+| Selected Publications | `publications.png` | Books on a desk, from Erasmus of Rotterdam, Albrecht Dürer, 1526 (public domain) |
 | Software | `software.png` | Grant calculating machine, 1877 (public domain) |
 
 ## After changing the CSS or JavaScript
