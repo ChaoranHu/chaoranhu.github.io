@@ -70,7 +70,7 @@ a:hover { text-decoration-color: var(--ink); }
 .logo-pines {
   display: block;
   width: 120px;
-  aspect-ratio: 469 / 270;
+  aspect-ratio: 406 / 270;
   margin: -14px 0 -10px;
   background-color: var(--text);
   -webkit-mask: url("../img/ornaments/pines.png") center / contain no-repeat;
