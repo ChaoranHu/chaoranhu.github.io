@@ -239,6 +239,16 @@ main.page.wide .carousel { max-width: var(--max); }
   outline: none;
 }
 .carousel .track::-webkit-scrollbar { display: none; }
+/* A section waiting for its photos shows a quiet note instead */
+.carousel .track:empty::before {
+  content: "New photos coming soon.";
+  display: block;
+  width: 100%;
+  padding: 24px 0;
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+}
 .carousel .track:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 .carousel figure {
   flex: 0 0 100%;
