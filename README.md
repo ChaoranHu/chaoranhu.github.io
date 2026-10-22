@@ -30,7 +30,7 @@ Source for Chaoran Hu's personal website, written as plain HTML and CSS. GitHub 
 
 ## Adding a photo
 
-1. Resize the image to about 1800 px on its long side, remove its EXIF and location data, and put it in `assets/img/wildlife/`, `assets/img/nature/` or `assets/img/humanistics/`.
+1. Keep the photo at full size and quality (no resizing or recompression). Remove its EXIF, XMP and location data without re-encoding, keeping the colour profile; `python3 tools/stripjpeg.py in.jpg out.jpg` does this losslessly. Put it in `assets/img/wildlife/`, `assets/img/nature/` or `assets/img/humanistics/`.
 2. In `photographer/index.html`, copy one `<figure>` line inside that section, change the file name and write a short `alt` description. The slider buttons, dots and counter update on their own.
 
 To add a new section, create a new folder under `assets/img/` and copy a whole `<div class="section-head">` plus `<div class="carousel">` block.
@@ -62,7 +62,7 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=20` and `carousel.js?v=20`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=21` and `carousel.js?v=20`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
 
 ## Previewing locally
 
