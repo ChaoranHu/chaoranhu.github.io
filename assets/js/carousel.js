@@ -1,33 +1,27 @@
 // One photo at a time carousels. Swipe on phones (native scroll snapping),
-// arrow buttons and dots on desktop, and Left/Right keys when a carousel has focus.
+// Previous / Next words under the photo, and Left/Right keys when a carousel has focus.
 document.querySelectorAll(".carousel").forEach((carousel) => {
   const track = carousel.querySelector(".track");
   const slides = Array.from(track.children);
-  // A single photo needs no arrows, counter or dots.
+  // A single photo needs no Previous / Next or counter.
   if (slides.length < 2) return;
 
-  const prev = document.createElement("button");
-  prev.className = "nav prev";
-  prev.setAttribute("aria-label", "Previous photo");
-  // Drawn chevrons sit exactly in the middle of the round buttons; text glyphs did not.
-  const chevron = (d) => `<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  prev.innerHTML = chevron("M10.5 3 5.5 8l5 5");
-  const next = document.createElement("button");
-  next.className = "nav next";
-  next.setAttribute("aria-label", "Next photo");
-  next.innerHTML = chevron("M5.5 3l5 5-5 5");
-  const count = document.createElement("div");
+  // Under the photo: "Previous", the counter and "Next" in the site font.
+  const button = (cls, label, text) => {
+    const b = document.createElement("button");
+    b.className = cls;
+    b.setAttribute("aria-label", label);
+    b.textContent = text;
+    return b;
+  };
+  const prev = button("prev", "Previous photo", "‹ Previous");
+  const next = button("next", "Next photo", "Next ›");
+  const count = document.createElement("span");
   count.className = "count";
-  const dots = document.createElement("div");
-  dots.className = "dots";
-  const dotButtons = slides.map((_, i) => {
-    const dot = document.createElement("button");
-    dot.setAttribute("aria-label", `Photo ${i + 1}`);
-    dot.addEventListener("click", () => go(i));
-    dots.appendChild(dot);
-    return dot;
-  });
-  carousel.append(prev, next, count, dots);
+  const pager = document.createElement("div");
+  pager.className = "pager";
+  pager.append(prev, count, next);
+  carousel.append(pager);
 
   let current = 0;
   const go = (i) => {
@@ -39,7 +33,6 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     prev.disabled = current === 0;
     next.disabled = current === slides.length - 1;
     count.textContent = `${current + 1} / ${slides.length}`;
-    dotButtons.forEach((d, i) => d.setAttribute("aria-current", i === current ? "true" : "false"));
   };
 
   prev.addEventListener("click", () => go(current - 1));

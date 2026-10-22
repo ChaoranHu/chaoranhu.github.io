@@ -223,7 +223,7 @@ main.page.note h2 { font-size: 30px; }
   main.page.note h2 { font-size: 27px; }
 }
 
-/* Photo carousels: one photo at a time, swipe or use the arrows */
+/* Photo carousels: one photo at a time, swipe or use Previous / Next */
 .carousel {
   position: relative;
   max-width: 880px;
@@ -267,56 +267,31 @@ main.page.wide .carousel { max-width: var(--max); }
   max-height: 100%;
   object-fit: contain; /* never crop */
 }
-.carousel .nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--ink);
+.carousel .pager {
   display: grid;
-  place-items: center;
-  padding: 0;
-  cursor: pointer;
-  transition: opacity 0.2s ease, background 0.15s ease, color 0.15s ease;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  margin-top: 12px;
 }
-.carousel .nav:hover { background: var(--text); border-color: var(--text); color: #fff; }
-.carousel .nav.prev { left: 16px; }
-.carousel .nav.next { right: 16px; }
-.carousel .nav svg { display: block; }
-.carousel .nav[disabled] { opacity: 0; pointer-events: none; }
+.carousel .pager button {
+  justify-self: start;
+  padding: 4px 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.carousel .pager .next { justify-self: end; }
+.carousel .pager button:hover { color: var(--ink); }
+.carousel .pager button[disabled] { visibility: hidden; } /* keeps the counter centred */
 .carousel .count {
-  margin-top: 14px;
   font-size: 14px;
   letter-spacing: 0.05em;
   color: var(--muted);
-  text-align: right;
-}
-.carousel .dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -26px;
-  display: flex;
-  gap: 6px;
-}
-.carousel .dots button {
-  flex: 0 1 20px; /* shrink when a section has many photos */
-  min-width: 3px;
-  height: 1px;
-  padding: 6px 0;
-  border: none;
-  background: linear-gradient(#c8c8c8, #c8c8c8) center / 100% 1px no-repeat;
-  cursor: pointer;
-}
-.carousel .dots button[aria-current="true"] {
-  background-image: linear-gradient(var(--ink), var(--ink));
-}
-@media (hover: none) {
-  .carousel .nav { display: none; } /* phones: swipe instead */
 }
 
 /* Footer: a pale band at the foot of every page */
