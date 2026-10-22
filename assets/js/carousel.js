@@ -9,11 +9,13 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   const prev = document.createElement("button");
   prev.className = "nav prev";
   prev.setAttribute("aria-label", "Previous photo");
-  prev.textContent = "‹";
+  // Drawn chevrons sit exactly in the middle of the round buttons; text glyphs did not.
+  const chevron = (d) => `<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  prev.innerHTML = chevron("M10.5 3 5.5 8l5 5");
   const next = document.createElement("button");
   next.className = "nav next";
   next.setAttribute("aria-label", "Next photo");
-  next.textContent = "›";
+  next.innerHTML = chevron("M5.5 3l5 5-5 5");
   const count = document.createElement("div");
   count.className = "count";
   const dots = document.createElement("div");
