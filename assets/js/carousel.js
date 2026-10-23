@@ -24,12 +24,15 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   carousel.append(pager);
 
   let current = 0;
+  // The exact (often fractional) width; clientWidth is rounded, which let the
+  // edge of the neighbouring photo peek in as a thin line.
+  const width = () => track.getBoundingClientRect().width;
   const go = (i) => {
     i = Math.max(0, Math.min(slides.length - 1, i));
-    track.scrollTo({ left: i * track.clientWidth });
+    track.scrollTo({ left: i * width() });
   };
   const update = () => {
-    current = Math.round(track.scrollLeft / track.clientWidth);
+    current = Math.round(track.scrollLeft / width());
     prev.disabled = current === 0;
     next.disabled = current === slides.length - 1;
     count.textContent = `${current + 1} / ${slides.length}`;
