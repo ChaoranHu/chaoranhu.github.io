@@ -253,6 +253,7 @@ main.page.wide .carousel { max-width: var(--max); }
 .carousel figure {
   flex: 0 0 100%;
   margin: 0;
+  padding: 0 2px; /* keeps a neighbouring photo's edge from showing beside this one */
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: flex;
