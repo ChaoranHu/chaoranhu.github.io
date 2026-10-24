@@ -1,0 +1,52 @@
+// Visitor map on the home page: counts this visit once per browser session, then draws a dot per city.
+(function () {
+  const ENDPOINT = ""; // the Cloudflare counter's address, for example https://visitors.NAME.workers.dev
+  const box = document.querySelector(".visitors");
+  if (!box || !ENDPOINT) return;
+
+  try {
+    if (!sessionStorage.getItem("counted")) {
+      fetch(ENDPOINT + "/hit", { method: "POST", keepalive: true }).catch(() => {});
+      sessionStorage.setItem("counted", "1");
+    }
+  } catch (e) {}
+
+  // Natural Earth projection fitted to the 960 x 470 map drawn in assets/img/world-*.svg
+  const K = 176.15557, TX = 480, TY = 266.53244, R = Math.PI / 180;
+  function project(lat, lon) {
+    const l = lon * R, p = lat * R, p2 = p * p, p4 = p2 * p2;
+    const x = l * (0.8707 - 0.131979 * p2 + p4 * (-0.013791 + p4 * (0.003971 * p2 - 0.001529 * p4)));
+    const y = p * (1.007226 + p2 * (0.015085 + p4 * (-0.044475 + 0.028874 * p2 - 0.005916 * p4)));
+    return [TX + K * x, TY - K * y];
+  }
+
+  fetch(ENDPOINT + "/cities")
+    .then(r => r.json())
+    .then(rows => {
+      if (!rows.length) return;
+      const max = rows[0][4];
+      const svgNS = "http://www.w3.org/2000/svg";
+      const g = box.querySelector("svg g");
+      rows.slice().reverse().forEach(([city, country, lat, lon, n]) => {
+        const [x, y] = project(lat, lon);
+        const r = 1.8 + 5.5 * Math.sqrt(n / max);
+        const halo = document.createElementNS(svgNS, "circle");
+        halo.setAttribute("class", "halo");
+        const dot = document.createElementNS(svgNS, "circle");
+        dot.setAttribute("class", "dot");
+        [[halo, r * 2], [dot, r]].forEach(([c, rad]) => {
+          c.setAttribute("cx", x.toFixed(1));
+          c.setAttribute("cy", y.toFixed(1));
+          c.setAttribute("r", rad.toFixed(1));
+        });
+        const title = document.createElementNS(svgNS, "title");
+        title.textContent = city;
+        dot.appendChild(title);
+        g.append(halo, dot);
+      });
+      box.querySelector(".count").textContent =
+        rows.length === 1 ? "from 1 city so far" : "from " + rows.length + " cities so far";
+      box.hidden = false;
+    })
+    .catch(() => {});
+})();

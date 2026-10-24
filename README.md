@@ -62,7 +62,13 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=24` and `carousel.js?v=23`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=25`, `carousel.js?v=23` and `visitors.js?v=1`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+
+## Visitor map
+
+The home page ends with a world map showing a dot for each city visitors came from, counted over all time. A free Cloudflare Worker does the counting: `tools/visitor-counter/worker.js`, with the table in `tools/visitor-counter/schema.sql` stored in a Cloudflare D1 database bound to the worker as `DB`. It keeps only the city, country, coordinates rounded to about 10 km, and a visit count; no IP addresses and no cookies. Each browser counts once per session.
+
+`assets/js/visitors.js` sends the visit and draws the dots on `assets/img/world-dots.svg` (Natural Earth land, public domain, Natural Earth projection; `world-outline.svg` is the thin outline version). Put the worker's address in `ENDPOINT` at the top of that file; while it is empty the map stays hidden.
 
 ## Previewing locally
 
