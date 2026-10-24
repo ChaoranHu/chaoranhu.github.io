@@ -130,7 +130,7 @@ a:hover { text-decoration-color: var(--ink); }
 }
 .social a:hover { color: var(--ink); }
 
-/* Visitor map: a dot per city on a pale world map, under the links row */
+/* Visitor map: a dot per city on a thin outline world map, under the links row */
 .visitors {
   grid-column: 1 / -1;
   width: 100%;
