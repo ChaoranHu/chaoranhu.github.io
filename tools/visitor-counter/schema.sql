@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS cities (
   lat REAL NOT NULL,
   lon REAL NOT NULL,
   visits INTEGER NOT NULL DEFAULT 0,
+  region TEXT NOT NULL DEFAULT '',
   PRIMARY KEY (city, country)
 );

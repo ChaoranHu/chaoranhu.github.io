@@ -35,8 +35,19 @@
       }
       const svgNS = "http://www.w3.org/2000/svg";
       const g = box.querySelector("svg g");
+      // "Carmel, IN" for places in the US, "Shanghai, China" elsewhere
+      let countryName = code => code;
+      try {
+        const names = new Intl.DisplayNames(["en"], { type: "region" });
+        countryName = code => names.of(code) || code;
+      } catch (e) {}
+      const label = ([city, country, , , , region]) =>
+        country === "US" ? (region ? city + ", " + region : city) :
+        country ? city + ", " + countryName(country) : city;
+
       const r = 2.2; // every city gets the same dot, however many visits it has
-      rows.forEach(([city, country, lat, lon]) => {
+      rows.forEach(row => {
+        const [, , lat, lon] = row;
         const [x, y] = project(lat, lon);
         const halo = document.createElementNS(svgNS, "circle");
         halo.setAttribute("class", "halo");
@@ -48,11 +59,11 @@
           c.setAttribute("r", rad.toFixed(1));
         });
         const title = document.createElementNS(svgNS, "title");
-        title.textContent = city;
+        title.textContent = label(row);
         dot.appendChild(title);
         g.append(halo, dot);
       });
-      const names = [...new Set(rows.map(r => r[0]))].sort((a, b) => a.localeCompare(b));
+      const names = [...new Set(rows.map(label))].sort((a, b) => a.localeCompare(b));
       box.querySelector(".cities").textContent = names.join("  ·  ");
       box.querySelector(".count").textContent =
         rows.length === 1 ? "from 1 city so far" : "from " + rows.length + " cities so far";
