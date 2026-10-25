@@ -130,19 +130,14 @@ a:hover { text-decoration-color: var(--ink); }
 }
 .social a:hover { color: var(--ink); }
 
-/* Visitor map: a dot per city on a thin outline world map, under the links row */
-.visitors {
-  grid-column: 1 / -1;
-  width: 100%;
-  max-width: 820px;
-  margin: 16px auto 0;
-  text-align: center;
-}
-.visitors h2 { font-weight: 400; font-size: 26px; margin: 0; }
-.visitors .count { margin: 0 0 14px; font-size: 17px; font-style: italic; color: var(--muted); }
+/* Visitor Map page: a dot per city on a thin outline world map */
+.visitors { max-width: 900px; margin: 0 auto; text-align: center; }
+.visitors h1 { margin-bottom: 0.15em; }
+.visitors .count { margin: 0 0 18px; font-size: 18px; font-style: italic; color: var(--muted); }
 .visitors svg { display: block; width: 100%; height: auto; }
 .visitors .halo { fill: var(--text); opacity: 0.12; }
 .visitors .dot { fill: #2b2b2b; }
+.visitors .about { max-width: var(--text-max); margin: 22px auto 0; font-size: 18px; color: var(--muted); }
 
 /* Content pages */
 main.page {
