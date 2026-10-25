@@ -33,12 +33,11 @@
         box.querySelector(".count").textContent = "No visits counted yet";
         return;
       }
-      const max = rows[0][4];
       const svgNS = "http://www.w3.org/2000/svg";
       const g = box.querySelector("svg g");
-      rows.slice().reverse().forEach(([city, country, lat, lon, n]) => {
+      const r = 2.2; // every city gets the same dot, however many visits it has
+      rows.forEach(([city, country, lat, lon]) => {
         const [x, y] = project(lat, lon);
-        const r = 1.8 + 5.5 * Math.sqrt(n / max);
         const halo = document.createElementNS(svgNS, "circle");
         halo.setAttribute("class", "halo");
         const dot = document.createElementNS(svgNS, "circle");
