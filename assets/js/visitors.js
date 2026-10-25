@@ -27,8 +27,9 @@
     .then(r => r.json())
     .then(rows => {
       if (!rows.length) {
-        box.querySelector(".count").textContent = "No visits counted yet";
-        box.hidden = false;
+        const names = [...new Set(rows.map(r => r[0]))].sort((a, b) => a.localeCompare(b));
+      box.querySelector(".cities").textContent = names.join("  ·  ");
+      box.querySelector(".count").textContent = "No visits counted yet";
         return;
       }
       const max = rows[0][4];
@@ -51,9 +52,10 @@
         dot.appendChild(title);
         g.append(halo, dot);
       });
+      const names = [...new Set(rows.map(r => r[0]))].sort((a, b) => a.localeCompare(b));
+      box.querySelector(".cities").textContent = names.join("  ·  ");
       box.querySelector(".count").textContent =
         rows.length === 1 ? "from 1 city so far" : "from " + rows.length + " cities so far";
-      box.hidden = false;
     })
     .catch(() => {});
 })();
