@@ -68,7 +68,7 @@ Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may 
 
 The home page ends with a world map showing a dot for each city visitors came from, counted over all time. A free Cloudflare Worker does the counting: `tools/visitor-counter/worker.js`, with the table in `tools/visitor-counter/schema.sql` stored in a Cloudflare D1 database bound to the worker as `DB`. It keeps only the city, country, coordinates rounded to about 10 km, and a visit count; no IP addresses and no cookies. Each browser counts once per session.
 
-`assets/js/visitors.js` sends the visit and draws the dots on `assets/img/world-outline.svg` (Natural Earth country outlines, public domain, Natural Earth projection; `world-dots.svg` is a dotted land version on the same grid). Put the worker's address in `ENDPOINT` at the top of that file; while it is empty the map stays hidden.
+`assets/js/visitors.js` sends the visit and draws the dots on `assets/img/world-outline.svg` (Natural Earth country outlines, public domain, Natural Earth projection; `world-dots.svg` is a dotted land version on the same grid). The worker lives at https://visitors.huchaoran-stat.workers.dev (set as `ENDPOINT` at the top of that file); if `ENDPOINT` is empty the map stays hidden.
 
 ## Previewing locally
 

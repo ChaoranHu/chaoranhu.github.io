@@ -1,6 +1,6 @@
 // Visitor map on the home page: counts this visit once per browser session, then draws a dot per city.
 (function () {
-  const ENDPOINT = ""; // the Cloudflare counter's address, for example https://visitors.NAME.workers.dev
+  const ENDPOINT = "https://visitors.huchaoran-stat.workers.dev"; // the Cloudflare counter (tools/visitor-counter/)
   const box = document.querySelector(".visitors");
   if (!box || !ENDPOINT) return;
 
