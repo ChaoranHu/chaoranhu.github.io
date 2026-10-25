@@ -4,12 +4,14 @@
   const ENDPOINT = "https://visitors.huchaoran-stat.workers.dev"; // the Cloudflare counter (tools/visitor-counter/)
   if (!ENDPOINT) return;
 
-  try {
-    if (!sessionStorage.getItem("counted")) {
-      fetch(ENDPOINT + "/hit", { method: "POST", keepalive: true }).catch(() => {});
-      sessionStorage.setItem("counted", "1");
-    }
-  } catch (e) {}
+  // Mark the session as counted only once the counter has confirmed the visit,
+  // so a failed attempt is retried on the next page
+  let counted = false;
+  try { counted = sessionStorage.getItem("counted") === "1"; } catch (e) {}
+  const hit = counted ? Promise.resolve() :
+    fetch(ENDPOINT + "/hit", { method: "POST" })
+      .then(r => { if (r.ok) try { sessionStorage.setItem("counted", "1"); } catch (e) {} })
+      .catch(() => {});
 
   const box = document.querySelector(".visitors");
   if (!box) return;
@@ -23,12 +25,12 @@
     return [TX + K * x, TY - K * y];
   }
 
-  fetch(ENDPOINT + "/cities")
+  // Load the cities after this visit is counted, so a first visit shows up straight away
+  hit.then(() => fetch(ENDPOINT + "/cities", { cache: "no-store" }))
     .then(r => r.json())
     .then(rows => {
       if (!rows.length) {
         box.querySelector(".count").textContent = "No visits counted yet";
-        box.hidden = false;
         return;
       }
       const max = rows[0][4];
@@ -51,9 +53,10 @@
         dot.appendChild(title);
         g.append(halo, dot);
       });
+      const names = [...new Set(rows.map(r => r[0]))].sort((a, b) => a.localeCompare(b));
+      box.querySelector(".cities").textContent = names.join("  ·  ");
       box.querySelector(".count").textContent =
         rows.length === 1 ? "from 1 city so far" : "from " + rows.length + " cities so far";
-      box.hidden = false;
     })
     .catch(() => {});
 })();
