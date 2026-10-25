@@ -11,3 +11,4 @@ UPDATE cities SET region = 'TX' WHERE country = 'US' AND city = 'Houston';
 UPDATE cities SET region = 'MA' WHERE country = 'US' AND city = 'Cambridge';
 UPDATE cities SET region = 'IL' WHERE country = 'US' AND city = 'Chicago';
 UPDATE cities SET region = 'NY' WHERE country = 'US' AND city = 'New York City';
+UPDATE cities SET region = 'PA' WHERE country = 'US' AND city = 'King of Prussia';
