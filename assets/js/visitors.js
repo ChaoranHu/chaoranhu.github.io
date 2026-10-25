@@ -1,8 +1,8 @@
-// Visitor map on the home page: counts this visit once per browser session, then draws a dot per city.
+// Visitor counter and map: every page counts the visit once per browser session;
+// the Visitor Map page (statistician/visitors/) also draws a dot per city.
 (function () {
   const ENDPOINT = "https://visitors.huchaoran-stat.workers.dev"; // the Cloudflare counter (tools/visitor-counter/)
-  const box = document.querySelector(".visitors");
-  if (!box || !ENDPOINT) return;
+  if (!ENDPOINT) return;
 
   try {
     if (!sessionStorage.getItem("counted")) {
@@ -10,6 +10,9 @@
       sessionStorage.setItem("counted", "1");
     }
   } catch (e) {}
+
+  const box = document.querySelector(".visitors");
+  if (!box) return;
 
   // Natural Earth projection fitted to the 960 x 470 map drawn in assets/img/world-*.svg
   const K = 176.15557, TX = 480, TY = 266.53244, R = Math.PI / 180;
@@ -23,7 +26,11 @@
   fetch(ENDPOINT + "/cities")
     .then(r => r.json())
     .then(rows => {
-      if (!rows.length) return;
+      if (!rows.length) {
+        box.querySelector(".count").textContent = "No visits counted yet";
+        box.hidden = false;
+        return;
+      }
       const max = rows[0][4];
       const svgNS = "http://www.w3.org/2000/svg";
       const g = box.querySelector("svg g");
