@@ -16,10 +16,12 @@
   const box = document.querySelector(".visitors");
   if (!box) return;
 
-  // Miller projection fitted to the 960 x 624 map drawn in assets/img/world-miller.svg
-  const K = 151.51551, TX = 480, TY = 305.15347, R = Math.PI / 180;
+  // Miller projection fitted to the 960 x 475 map drawn in assets/img/world-miller.svg, centred on 11.6 E
+  // so the map's edge runs through the Bering Strait and no land is cut in two
+  const K = 151.75984, TX = 479.99704, TY = 305.76869, C = 11.6, R = Math.PI / 180;
   function project(lat, lon) {
-    return [TX + K * lon * R, TY - K * 1.25 * Math.log(Math.tan(Math.PI / 4 + 0.4 * lat * R))];
+    const l = ((lon - C + 540) % 360) - 180;
+    return [TX + K * l * R, TY - K * 1.25 * Math.log(Math.tan(Math.PI / 4 + 0.4 * lat * R))];
   }
 
   // Load the cities after this visit is counted, so a first visit shows up straight away
