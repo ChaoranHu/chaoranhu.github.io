@@ -1,7 +1,7 @@
 // Visitor counter and map: every page counts the visit once per browser session;
 // the Visitor Map page (statistician/visitors/) also draws a dot per city.
 (function () {
-  const ENDPOINT = "https://visitors.huchaoran-stat.workers.dev"; // the Cloudflare counter (tools/visitor-counter/)
+  const ENDPOINT = "https://visitors.huchaoran.com"; // the Cloudflare counter (tools/visitor-counter/)
   if (!ENDPOINT) return;
 
   // Mark the session as counted only once the counter has confirmed the visit,
