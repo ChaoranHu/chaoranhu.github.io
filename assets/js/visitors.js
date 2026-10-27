@@ -16,13 +16,10 @@
   const box = document.querySelector(".visitors");
   if (!box) return;
 
-  // Natural Earth projection fitted to the 960 x 470 map drawn in assets/img/world-*.svg
-  const K = 176.15557, TX = 480, TY = 266.53244, R = Math.PI / 180;
+  // Miller projection fitted to the 960 x 624 map drawn in assets/img/world-miller.svg
+  const K = 151.51551, TX = 480, TY = 305.15347, R = Math.PI / 180;
   function project(lat, lon) {
-    const l = lon * R, p = lat * R, p2 = p * p, p4 = p2 * p2;
-    const x = l * (0.8707 - 0.131979 * p2 + p4 * (-0.013791 + p4 * (0.003971 * p2 - 0.001529 * p4)));
-    const y = p * (1.007226 + p2 * (0.015085 + p4 * (-0.044475 + 0.028874 * p2 - 0.005916 * p4)));
-    return [TX + K * x, TY - K * y];
+    return [TX + K * lon * R, TY - K * 1.25 * Math.log(Math.tan(Math.PI / 4 + 0.4 * lat * R))];
   }
 
   // Load the cities after this visit is counted, so a first visit shows up straight away
