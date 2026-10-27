@@ -41,9 +41,12 @@
         const names = new Intl.DisplayNames(["en"], { type: "region" });
         countryName = code => names.of(code) || code;
       } catch (e) {}
+      // Mainland China, Taiwan, Hong Kong and Macau all read "China" (some phones say "China mainland")
+      const CHINA = ["CN", "TW", "HK", "MO"];
+      const placeName = code => CHINA.includes(code) ? "China" : countryName(code);
       const label = ([city, country, , , , region]) =>
         country === "US" ? (region ? city + ", " + region : city) :
-        country ? city + ", " + countryName(country) : city;
+        country ? city + ", " + placeName(country) : city;
 
       const r = 2.2; // every city gets the same dot, however many visits it has
       rows.forEach(row => {
