@@ -57,13 +57,12 @@ To add one, save the PNG in that folder, add a `.ornament-name` rule next to the
 | News Coverage | `news.png` | The newspaper reader, Adolph Menzel (public domain) |
 | Work Experience | `work.png` | Writing table, James H. Worman (public domain) |
 | Education | `education.png` | New Quadrangle, Trinity College, Oxford, etching (public domain) |
-| Honors and Awards | `honors.png` | Wreath and pen, William Harry Rogers (public domain) |
 | Selected Publications | `publications.png` | Books on a desk, from Erasmus of Rotterdam, Albrecht Dürer, 1526 (public domain) |
 | Software | `software.png` | Grant calculating machine, 1877 (public domain) |
 
 ## After changing the CSS or JavaScript
 
-Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=27`, `carousel.js?v=23` and `visitors.js?v=9`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
+Browsers keep `style.css` and `carousel.js` for about 10 minutes, so phones may show the old look right after a change. Pages load them as `style.css?v=28`, `carousel.js?v=23` and `visitors.js?v=9`; bump that number in every `index.html` whenever you edit either file and visitors get the new version straight away. The tab icon links carry their own `?v=` in the same way; bump it if the icons change.
 
 ## Visitor map
 
