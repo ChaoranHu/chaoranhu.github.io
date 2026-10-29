@@ -212,7 +212,6 @@ main.page .section-head h2::after {
 .ornament-newspaper { --src: url("../img/ornaments/news.png?v=3"); --r: 324 / 450; }
 .ornament-briefcase { --src: url("../img/ornaments/work.png?v=3"); --r: 186 / 184; }
 .ornament-mortarboard { --src: url("../img/ornaments/education.png?v=3"); --r: 653 / 450; }
-.ornament-medal { --src: url("../img/ornaments/honors.png?v=3"); --r: 706 / 450; }
 .ornament-papers { --src: url("../img/ornaments/publications.png?v=3"); --r: 846 / 450; }
 .ornament-hexagon { --src: url("../img/ornaments/software.png?v=3"); --r: 703 / 450; }
 
